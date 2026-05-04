@@ -65,7 +65,7 @@ export function RsvpForm() {
     if (mutation.isSuccess && mutation.data.success) {
         return (
             <div className="font-body text-center">
-                <p className="font-handwriting mb-8 text-[32px] leading-10 text-brown-dark">
+                <p className="font-handwriting text-brown-dark mb-8 text-[32px] leading-10">
                     Thank you!
                 </p>
                 <p className="text-brown-dark">
@@ -81,10 +81,10 @@ export function RsvpForm() {
         <>
             <div className="mb-10">
                 <Heading2 className="mb-8">RSVP</Heading2>
-                <Paragraph className="mb-4 text-brown-dark">
+                <Paragraph className="text-brown-dark mb-4">
                     Let us know if you can make it to our wedding. Please RSVP by 1st August 2026.
                 </Paragraph>
-                <Paragraph className="mb-4 text-brown-dark">
+                <Paragraph className="text-brown-dark mb-4">
                     Not sure if you RSVPed or want to change your RSVP?{' '}
                     <Link href="/rsvp/check" className="underline">
                         Click here
@@ -94,11 +94,14 @@ export function RsvpForm() {
 
             <form
                 onSubmit={onSubmit}
-                className="font-body flex flex-col gap-10 rounded-xl bg-sage p-6 text-forest"
+                className="font-body bg-sage text-forest flex flex-col gap-10 rounded-xl p-6"
             >
                 {/* Email */}
                 <div className="flex flex-col gap-2">
-                    <Label htmlFor="email" className="text-xs font-medium tracking-widest uppercase">
+                    <Label
+                        htmlFor="email"
+                        className="text-xs font-medium tracking-widest uppercase"
+                    >
                         Email address
                     </Label>
                     <Input
@@ -125,7 +128,7 @@ export function RsvpForm() {
                     >
                         {[
                             { value: 'accept', label: 'I accept!' },
-                            { value: 'decline', label: 'I regretfully decline' },
+                            { value: 'decline', label: 'I decline' },
                         ].map(({ value, label }) => (
                             <label key={value} className="flex cursor-pointer items-center gap-2.5">
                                 <RadioGroupItem value={value} id={`attending-${value}`} />
@@ -145,9 +148,13 @@ export function RsvpForm() {
                     </Label>
                     <RadioGroup
                         onValueChange={(val) =>
-                            setValue('dietaryRequirement', val as FormValues['dietaryRequirement'], {
-                                shouldValidate: true,
-                            })
+                            setValue(
+                                'dietaryRequirement',
+                                val as FormValues['dietaryRequirement'],
+                                {
+                                    shouldValidate: true,
+                                }
+                            )
                         }
                     >
                         {dietaryOptions.map(({ value, label }) => (
@@ -180,12 +187,12 @@ export function RsvpForm() {
                 </div>
 
                 {mutation.isSuccess && mutation.data.error && (
-                    <div className="font-body rounded-xl border bg-straw p-3 text-center text-brown-dark">
+                    <div className="font-body bg-straw text-brown-dark rounded-xl border p-3 text-center">
                         <p className="text-sm">
                             You&apos;ve already RSVPed. If you need to change your RSVP, please{' '}
                             <a
                                 href={`mailto:${CONTACT_EMAIL}?subject=${CHANGE_SUBJECT}&body=Hi,\n\nI'd like to update my RSVP.\n\nEmail: ${email}\n\nChanges:\n`}
-                                className="underline underline-offset-2 hover:text-forest"
+                                className="hover:text-forest underline underline-offset-2"
                             >
                                 email us
                             </a>{' '}

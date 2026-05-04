@@ -41,8 +41,8 @@ function AccommodationOption({
 }) {
     return (
         <div className="border-brown-dark/20 flex flex-col gap-2 border-t pt-8">
-            <Heading3 className="text-brown-dark">{name}</Heading3>
-            <Paragraph className="text-brown-dark">{description}</Paragraph>
+            <h3 className="text-brown-dark font-sans text-xl font-medium tracking-wider">{name}</h3>
+            <Paragraph className="text-brown-dark text-base font-normal">{description}</Paragraph>
             {image && <Image src={image} alt={name} width={100} height={100} />}
             <Link href={link} className="underline">
                 View

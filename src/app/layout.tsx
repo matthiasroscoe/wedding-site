@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Homemade_Apple, Work_Sans } from 'next/font/google'
 import { Providers } from './providers'
+import { AudioPlayer } from '@/components/audio-player'
 import './globals.css'
 
 const homemadeApple = Homemade_Apple({
@@ -26,7 +27,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             className={`${homemadeApple.variable} ${workSans.variable} h-full antialiased`}
         >
             <body className="bg-straw flex min-h-full flex-col">
-                <Providers>{children}</Providers>
+                <Providers>
+                    {children}
+                    <AudioPlayer />
+                </Providers>
             </body>
         </html>
     )

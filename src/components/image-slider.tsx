@@ -44,6 +44,7 @@ export function ImageSlider() {
                                         src={slide.src}
                                         alt={slide.alt}
                                         fill
+                                        sizes="90vw"
                                         className="object-cover"
                                     />
                                 </div>
@@ -68,7 +69,7 @@ export function ImageSlider() {
                     </button>
 
                     {/* Dots */}
-                    <div className="bg-straw/50 absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-2 rounded-xl p-2 backdrop-blur-sm">
+                    <div className="bg-straw/50 absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-2 rounded-full p-2 backdrop-blur-sm">
                         {slides.map((slide, i) => (
                             <button
                                 key={slide.src}

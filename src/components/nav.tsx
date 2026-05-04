@@ -1,8 +1,9 @@
 'use client'
 
 import Link from 'next/link'
-import { Menu } from 'lucide-react'
+import { Menu, Pause, Play } from 'lucide-react'
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
+import { useAudio } from '@/lib/audio-context'
 
 export const navLinks = [
     { label: 'home', href: '/' },
@@ -14,8 +15,10 @@ export const navLinks = [
 ]
 
 export function Nav() {
+    const { isPlaying, toggle, track } = useAudio()
+
     return (
-        <header className="fixed top-0 right-0 left-0 z-50 flex items-center justify-start bg-straw p-4 pt-3 pb-2 md:justify-center md:pt-7 md:pb-6">
+        <header className="fixed top-0 right-0 left-0 z-50 flex items-center justify-between bg-straw p-4 pt-3 pb-2 md:justify-center md:pt-7 md:pb-6">
             {/* Desktop */}
             <nav className="hidden items-center gap-[45px] md:flex">
                 {navLinks.map(({ label, href }) => (
@@ -30,7 +33,7 @@ export function Nav() {
             </nav>
 
             {/* Mobile */}
-            <div className="md:hidden">
+            <div className="flex items-center gap-3 md:hidden">
                 <Sheet>
                     <SheetTrigger asChild>
                         <button
@@ -58,6 +61,20 @@ export function Nav() {
                         </nav>
                     </SheetContent>
                 </Sheet>
+            </div>
+
+            {/* Mobile audio controls */}
+            <div className="flex items-center gap-2 md:hidden">
+                <span className="font-body max-w-[120px] truncate text-xs font-medium text-brown/70">
+                    {track.title}
+                </span>
+                <button
+                    onClick={toggle}
+                    aria-label={isPlaying ? 'Pause' : 'Play'}
+                    className="flex h-7 w-7 shrink-0 cursor-pointer items-center justify-center rounded-full bg-brown text-cream transition-colors hover:bg-brown-dark"
+                >
+                    {isPlaying ? <Pause className="h-3 w-3" /> : <Play className="h-3 w-3 translate-x-px" />}
+                </button>
             </div>
         </header>
     )
