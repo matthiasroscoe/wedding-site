@@ -33,7 +33,7 @@ const faqs = [
 export function Faqs({ className }: { className?: string }) {
     return (
         <section id="faqs" className={cn('bg-yellow text-brown-dark', className)}>
-            <div className="font-body container mx-auto px-4 pt-2 pb-24 sm:px-8">
+            <div className="font-body container mx-auto px-8 pt-2 pb-24">
                 <Heading2 className="mb-8 text-center">faqs</Heading2>
 
                 <div className="mx-auto mt-8 max-w-[700px] text-lg">

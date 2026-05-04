@@ -28,7 +28,7 @@ const dietaryLabels: Record<string, string> = {
 
 function RsvpResult({ record, email }: { record: NonNullable<RsvpRecord>; email: string }) {
     return (
-        <div className="bg-yellow flex flex-col gap-6 rounded-xl p-6">
+        <div className="bg-yellow font-body flex flex-col gap-6 rounded-xl p-6">
             <div className="flex flex-col gap-1">
                 <span className="text-brown-dark text-xs font-medium tracking-widest uppercase">
                     Attending
@@ -72,7 +72,7 @@ function RsvpResult({ record, email }: { record: NonNullable<RsvpRecord>; email:
 
 function RsvpNotFound() {
     return (
-        <div className="bg-yellow mt-6 flex flex-col gap-3 rounded-xl p-6">
+        <div className="bg-yellow font-body mt-6 flex flex-col gap-3 rounded-xl p-6">
             <p className="text-brown-dark">No RSVP found for that email address.</p>
             <p className="text-brown-dark text-sm">
                 It looks like you haven&apos;t RSVPed yet. You can{' '}
@@ -111,7 +111,7 @@ export function RsvpLookup({ email }: { email: string }) {
                 </Paragraph>
             </div>
 
-            <form onSubmit={onSubmit} className="mb-10 flex flex-col gap-6">
+            <form onSubmit={onSubmit} className="font-body mb-10 flex flex-col gap-6">
                 <div className="flex flex-col gap-2">
                     <Label
                         htmlFor="email"
