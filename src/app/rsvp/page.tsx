@@ -4,7 +4,7 @@ import { Main } from '@/components/main'
 
 export default function RsvpPage() {
     return (
-        <Main className="min-h-screen bg-straw pb-16">
+        <Main className="bg-cream min-h-screen pb-16">
             <Nav />
             <div className="mx-auto max-w-xl px-5 pt-12 md:px-8 md:pt-16">
                 <RsvpForm />

@@ -5,10 +5,10 @@ import Link from 'next/link'
 
 export default function Home() {
     return (
-        <Main className="min-h-screen bg-straw pb-16">
+        <Main className="bg-cream min-h-screen pb-16">
             <Nav />
             <div className="mx-auto max-w-lg px-8 pt-12 md:pt-16">
-                <section className="mb-16 text-brown-dark">
+                <section className="text-brown-dark mb-16">
                     <Heading2 className="mb-10">dress code</Heading2>
                     <Paragraph className="mb-4">
                         Semi-formal: think smart and dressed up, but not overly formal.

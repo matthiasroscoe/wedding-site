@@ -28,39 +28,39 @@ const dietaryLabels: Record<string, string> = {
 
 function RsvpResult({ record, email }: { record: NonNullable<RsvpRecord>; email: string }) {
     return (
-        <div className="bg-sage flex flex-col gap-6 rounded-xl p-6">
+        <div className="bg-yellow flex flex-col gap-6 rounded-xl p-6">
             <div className="flex flex-col gap-1">
-                <span className="text-forest text-xs font-medium tracking-widest uppercase">
+                <span className="text-brown-dark text-xs font-medium tracking-widest uppercase">
                     Attending
                 </span>
-                <span className="text-forest text-lg">
+                <span className="text-brown-dark text-lg">
                     {record.attending ? 'Accepts ✓' : 'Declined'}
                 </span>
             </div>
 
             <div className="flex flex-col gap-1">
-                <span className="text-forest text-xs font-medium tracking-widest uppercase">
+                <span className="text-brown-dark text-xs font-medium tracking-widest uppercase">
                     Dietary requirements
                 </span>
-                <span className="text-forest text-lg">
+                <span className="text-brown-dark text-lg">
                     {dietaryLabels[record.dietaryRequirement] ?? record.dietaryRequirement}
                 </span>
             </div>
 
             {record.dietaryNotes && (
                 <div className="flex flex-col gap-1">
-                    <span className="text-forest text-xs font-medium tracking-widest uppercase">
+                    <span className="text-brown-dark text-xs font-medium tracking-widest uppercase">
                         Notes
                     </span>
-                    <span className="text-forest text-lg">{record.dietaryNotes}</span>
+                    <span className="text-brown-dark text-lg">{record.dietaryNotes}</span>
                 </div>
             )}
 
-            <p className="text-forest text-sm">
+            <p className="text-brown-dark text-sm">
                 Need to make changes?{' '}
                 <a
                     href={`mailto:${CONTACT_EMAIL}?subject=${CHANGE_SUBJECT}&body=Hi,\n\nI'd like to update my RSVP.\n\nEmail: ${email}\n\nChanges:\n`}
-                    className="hover:text-forest underline underline-offset-2"
+                    className="hover:text-brown-dark underline underline-offset-2"
                 >
                     Email us
                 </a>{' '}
@@ -72,9 +72,9 @@ function RsvpResult({ record, email }: { record: NonNullable<RsvpRecord>; email:
 
 function RsvpNotFound() {
     return (
-        <div className="bg-sage mt-6 flex flex-col gap-3 rounded-xl p-6">
-            <p className="text-forest">No RSVP found for that email address.</p>
-            <p className="text-forest text-sm">
+        <div className="bg-yellow mt-6 flex flex-col gap-3 rounded-xl p-6">
+            <p className="text-brown-dark">No RSVP found for that email address.</p>
+            <p className="text-brown-dark text-sm">
                 It looks like you haven&apos;t RSVPed yet. You can{' '}
                 <a href="/rsvp" className="underline underline-offset-2">
                     RSVP here
@@ -122,6 +122,7 @@ export function RsvpLookup({ email }: { email: string }) {
                     <Input
                         id="email"
                         type="email"
+                        variant="brown"
                         placeholder="your@email.com"
                         {...register('email')}
                     />

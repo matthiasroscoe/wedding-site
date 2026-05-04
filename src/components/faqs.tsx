@@ -31,8 +31,8 @@ const faqs = [
 
 export function Faqs({ className }: { className?: string }) {
     return (
-        <section id="faqs" className={cn('bg-straw text-brown-dark', className)}>
-            <div className="font-body container mx-auto px-4 pt-18 pb-24 sm:px-8 md:py-24">
+        <section id="faqs" className={cn('bg-yellow text-brown-dark', className)}>
+            <div className="font-body container mx-auto px-4 pt-2 pb-24 sm:px-8">
                 <h2 className="font-handwriting text-center text-[32px] leading-[38px]">faqs</h2>
 
                 <div className="mx-auto mt-8 max-w-[700px]">

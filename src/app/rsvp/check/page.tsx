@@ -10,7 +10,7 @@ export default async function RsvpPage({
     const { email } = await searchParams
 
     return (
-        <Main className="min-h-screen bg-straw pb-16">
+        <Main className="bg-cream min-h-screen pb-16">
             <Nav />
             <div className="mx-auto max-w-lg px-5 pt-12 md:px-8 md:pt-16">
                 <RsvpLookup email={email} />

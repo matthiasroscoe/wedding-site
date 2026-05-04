@@ -53,7 +53,7 @@ function AccommodationOption({
 
 export default function Home() {
     return (
-        <Main className="bg-straw min-h-screen pb-16">
+        <Main className="bg-cream min-h-screen pb-16">
             <Nav />
             <div className="mx-auto max-w-xl px-8 pt-12 md:pt-16">
                 <section className="mb-16">

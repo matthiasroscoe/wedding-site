@@ -12,11 +12,11 @@ const Input = React.forwardRef<
         ref={ref}
         className={cn(
             'flex h-11 w-full rounded-none border-b bg-transparent px-0 py-2',
-            'text-base outline-none transition-colors',
+            'text-base transition-colors outline-none',
             'disabled:cursor-not-allowed disabled:opacity-50',
             variant === 'brown'
-                ? 'border-brown/40 text-brown-dark placeholder:text-brown/50 focus:border-brown'
-                : 'border-forest/40 text-forest placeholder:text-forest/70 focus:border-forest',
+                ? 'border-brown-dark/40 text-brown-dark placeholder:text-brown-dark/50 focus:border-brown-dark'
+                : 'border-green/40 text-green placeholder:text-green/70 focus:border-green',
             className
         )}
         {...props}

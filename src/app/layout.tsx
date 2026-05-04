@@ -26,7 +26,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             lang="en"
             className={`${homemadeApple.variable} ${workSans.variable} h-full antialiased`}
         >
-            <body className="bg-straw flex min-h-full flex-col">
+            <body className="bg-cream flex min-h-full flex-col">
                 <Providers>
                     {children}
                     <AudioPlayer />

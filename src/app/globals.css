@@ -2,7 +2,7 @@
 @plugin 'tailwindcss-animate';
 
 :root {
-    --background: var(--color-straw);
+    --background: var(--color-cream);
     --foreground: var(--color-brown-dark);
 }
 
@@ -16,17 +16,48 @@
     --font-body: var(--font-work-sans);
 
     /* palette */
-    --color-cream: #f3e0be;
-    --color-straw: #f0dc9e;
-    --color-sage: #b3b487;
-    --color-brown: #93592b;
-    --color-brown-dark: #331b08;
-    --color-olive: #323f14;
-    --color-forest: #1f2909;
+    --color-cream: #fffae1;
+    --color-yellow: #e1cf73;
+    --color-sage: #b2c99c;
+    --color-brown: #d8b375;
+    --color-brown-dark: #6a410e;
+    --color-green: #3c680a;
 }
 
 body {
-    background: var(--color-straw);
+    background: var(--color-cream);
     color: var(--color-brown-dark);
     font-family: var(--font-work-sans), sans-serif;
+}
+
+#hero {
+    background-color: #fffae1;
+    opacity: 1;
+    background-image: linear-gradient(to right, #e1cf73, #e1cf73 60px, #fffae1 60px, #fffae1);
+    background-size: 120px 100%;
+}
+
+@media screen and (min-width: 768px) {
+    #hero {
+        background-image: linear-gradient(to right, #e1cf73, #e1cf73 120px, #fffae1 120px, #fffae1);
+        background-size: 240px 100%;
+    }
+}
+
+#schedule {
+    --mask:
+        radial-gradient(111.8px at 50% 150px, #000 99%, #0000 101%) calc(50% - 100px) 0/200px 100%,
+        radial-gradient(111.8px at 50% -100px, #0000 99%, #000 101%) 50% 50px/200px 100% repeat-x;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
+}
+
+@media screen and (min-width: 768px) {
+    #schedule {
+        --mask:
+            radial-gradient(223.61px at 50% 300px, #000 99%, #0000 101%) calc(50% - 200px) 0 / 400px
+                100%,
+            radial-gradient(223.61px at 50% -200px, #0000 99%, #000 101%) 50% 100px / 400px 100%
+                repeat-x;
+    }
 }

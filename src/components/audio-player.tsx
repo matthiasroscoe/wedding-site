@@ -21,7 +21,7 @@ export function AudioPlayer() {
 
     return (
         <div className="fixed right-6 bottom-6 z-50 hidden md:block">
-            <div className="border-brown/20 bg-cream flex w-64 items-center gap-3 rounded-2xl border px-4 py-3 shadow-lg">
+            <div className="border-brown/20 flex w-64 items-center gap-3 rounded-2xl border bg-white px-4 py-3 shadow-lg">
                 <div className="bg-brown/10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full">
                     <Music2 className="text-brown h-4 w-4" />
                 </div>

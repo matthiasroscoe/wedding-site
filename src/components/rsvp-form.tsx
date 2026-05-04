@@ -94,7 +94,7 @@ export function RsvpForm() {
 
             <form
                 onSubmit={onSubmit}
-                className="font-body bg-sage text-forest flex flex-col gap-10 rounded-xl p-6"
+                className="font-body bg-yellow text-brown-dark flex flex-col gap-10 rounded-xl p-6"
             >
                 {/* Email */}
                 <div className="flex flex-col gap-2">
@@ -107,8 +107,9 @@ export function RsvpForm() {
                     <Input
                         id="email"
                         type="email"
+                        variant="brown"
                         placeholder="your@email.com"
-                        className="placeholder:text-forest/70"
+                        className="placeholder:text-brown-dark/70"
                         {...register('email')}
                     />
                     {errors.email && <p className="text-sm text-red-700">{errors.email.message}</p>}
@@ -180,19 +181,20 @@ export function RsvpForm() {
                     </Label>
                     <Textarea
                         id="dietaryNotes"
+                        variant="brown"
                         placeholder="e.g. nut allergy, gluten free…"
-                        className="placeholder:text-forest/70"
+                        className="placeholder:text-brown-dark/70"
                         {...register('dietaryNotes')}
                     />
                 </div>
 
                 {mutation.isSuccess && mutation.data.error && (
-                    <div className="font-body bg-straw text-brown-dark rounded-xl border p-3 text-center">
+                    <div className="font-body bg-cream text-brown-dark rounded-xl border p-3 text-center">
                         <p className="text-sm">
                             You&apos;ve already RSVPed. If you need to change your RSVP, please{' '}
                             <a
                                 href={`mailto:${CONTACT_EMAIL}?subject=${CHANGE_SUBJECT}&body=Hi,\n\nI'd like to update my RSVP.\n\nEmail: ${email}\n\nChanges:\n`}
-                                className="hover:text-forest underline underline-offset-2"
+                                className="hover:text-brown-dark underline underline-offset-2"
                             >
                                 email us
                             </a>{' '}

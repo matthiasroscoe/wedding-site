@@ -6,7 +6,7 @@ import { Main } from '@/components/main'
 
 export default function Home() {
     return (
-        <Main className="bg-straw">
+        <Main className="bg-cream pt-0 md:pt-0">
             <Hero />
             <MainDetails />
             <Schedule />

@@ -14,11 +14,15 @@ const polaroids = [
 export function Hero() {
     const cardRefs = useRef<(HTMLDivElement | null)[]>([])
     const headingRef = useRef<HTMLDivElement>(null)
+    const invitedRef = useRef<HTMLParagraphElement>(null)
+    const dateRef = useRef<HTMLParagraphElement>(null)
 
     useEffect(() => {
         const cards = cardRefs.current.filter(Boolean) as HTMLDivElement[]
         const heading = headingRef.current
-        if (!cards.length || !heading) return
+        const invited = invitedRef.current
+        const date = dateRef.current
+        if (!cards.length || !heading || !invited || !date) return
 
         gsap.set(cards, { transformOrigin: '0% 0%' })
 
@@ -40,11 +44,27 @@ export function Hero() {
             '>-0.1'
         )
 
-        return () => { tl.kill() }
+        tl.fromTo(
+            invited,
+            { opacity: 0, y: 8 },
+            { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' },
+            '>-0.02'
+        )
+
+        tl.fromTo(
+            date,
+            { opacity: 0, y: 8 },
+            { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' },
+            '>-0.02'
+        )
+
+        return () => {
+            tl.kill()
+        }
     }, [])
 
     return (
-        <section className="bg-straw">
+        <section id="hero" className="text-brown-dark pt-[62px] md:pt-[76px]">
             <div className="container mx-auto overflow-hidden">
                 <Nav />
 
@@ -54,15 +74,27 @@ export function Hero() {
                             {polaroids.map(({ src }, i) => (
                                 <div
                                     key={i}
-                                    ref={(el) => { cardRefs.current[i] = el }}
-                                    className="absolute bg-white opacity-0"
+                                    ref={(el) => {
+                                        cardRefs.current[i] = el
+                                    }}
+                                    className="absolute bg-white opacity-0 shadow-lg"
                                     style={{ width: '326px', height: '371px' }}
                                 >
                                     <div
                                         className="absolute overflow-hidden"
-                                        style={{ top: '14px', left: '16px', width: '294px', height: '276px' }}
+                                        style={{
+                                            top: '14px',
+                                            left: '16px',
+                                            width: '294px',
+                                            height: '276px',
+                                        }}
                                     >
-                                        <Image src={src} alt="Can Ramonet, Catalonia" fill className="object-cover" />
+                                        <Image
+                                            src={src}
+                                            alt="Can Ramonet, Catalonia"
+                                            fill
+                                            className="object-cover"
+                                        />
                                     </div>
                                 </div>
                             ))}
@@ -71,16 +103,22 @@ export function Hero() {
 
                     <div
                         ref={headingRef}
-                        className="font-handwriting text-brown relative mt-[-41px] whitespace-pre text-center text-[24px] leading-[34px] opacity-0 md:mt-[-68px] md:text-[48px] md:leading-[58px] xl:mt-[-91px] xl:text-[48px] xl:leading-[64px]"
+                        className="font-handwriting relative mt-[-41px] text-center text-[24px] leading-[34px] whitespace-pre opacity-0 md:mt-[-68px] md:text-[48px] md:leading-[58px] xl:mt-[-91px] xl:text-[48px] xl:leading-[64px]"
                     >
                         {'Cat & Matt\nare getting married'}
                     </div>
 
-                    <p className="font-body text-brown mt-8 mb-2 text-sm font-medium tracking-[0.12em] md:mt-14 md:text-base xl:mt-[75px] xl:tracking-wider">
+                    <p
+                        ref={invitedRef}
+                        className="font-body mt-8 mb-2 text-sm font-medium tracking-[0.12em] opacity-0 md:mt-14 md:text-base xl:mt-[75px] xl:tracking-wider"
+                    >
                         YOU&apos;RE INVITED
                     </p>
 
-                    <p className="font-handwriting text-brown text-center text-[26px] leading-9 md:text-[32px] md:leading-10">
+                    <p
+                        ref={dateRef}
+                        className="font-handwriting text-center text-[26px] leading-9 opacity-0 md:text-[32px] md:leading-10"
+                    >
                         29.05.2027
                     </p>
                 </div>
