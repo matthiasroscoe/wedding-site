@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { CONTACT_EMAIL, CONTACT_PHONE } from '@/lib/constants'
+import { Heading2 } from './ui/typography'
 
 export function MainDetails() {
     return (
@@ -8,7 +9,7 @@ export function MainDetails() {
             <div className="container mx-auto flex flex-col md:flex-row">
                 {/* Left: sage-green content panel */}
                 <div className="mx-auto flex flex-col items-center px-8 pt-16 pb-6 text-center md:pt-[85px] md:pb-8 lg:px-[80px] xl:px-[110px]">
-                    <h2 className="font-handwriting text-[32px] leading-[38px]">Details</h2>
+                    <Heading2>Details</Heading2>
 
                     <div className="font-body mt-8 max-w-[419px] text-[18px] leading-[28px] font-medium">
                         <p className="mb-8">
@@ -38,7 +39,7 @@ export function MainDetails() {
                         />
                     </div>
 
-                    <div className="font-body -mt-4 text-[14px] leading-[24px] font-medium">
+                    <div className="font-body -mt-4 text-[16px] leading-[24px] font-medium">
                         <p>
                             If any questions, please contact us at the email and phone number below.
                         </p>

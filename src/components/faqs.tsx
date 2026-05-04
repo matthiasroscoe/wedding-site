@@ -5,6 +5,7 @@ import {
     AccordionTrigger,
 } from '@/components/ui/accordion'
 import { cn } from '@/lib/utils'
+import { Heading2 } from './ui/typography'
 
 const faqs = [
     {
@@ -33,14 +34,16 @@ export function Faqs({ className }: { className?: string }) {
     return (
         <section id="faqs" className={cn('bg-yellow text-brown-dark', className)}>
             <div className="font-body container mx-auto px-4 pt-2 pb-24 sm:px-8">
-                <h2 className="font-handwriting text-center text-[32px] leading-[38px]">faqs</h2>
+                <Heading2 className="mb-8 text-center">faqs</Heading2>
 
-                <div className="mx-auto mt-8 max-w-[700px]">
+                <div className="mx-auto mt-8 max-w-[700px] text-lg">
                     <Accordion type="multiple">
                         {faqs.map((faq, idx) => (
                             <AccordionItem key={idx} value={faq.question}>
                                 <AccordionTrigger>{faq.question}</AccordionTrigger>
-                                <AccordionContent>{faq.answer}</AccordionContent>
+                                <AccordionContent className="text-lg">
+                                    {faq.answer}
+                                </AccordionContent>
                             </AccordionItem>
                         ))}
                     </Accordion>

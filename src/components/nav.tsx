@@ -42,7 +42,7 @@ export function Nav() {
     return (
         <header
             className={cn(
-                'text-brown-dark fixed top-0 right-0 left-0 z-50 flex items-center justify-between p-4 pt-3 pb-2 transition-colors duration-300 md:justify-center md:pt-7 md:pb-6',
+                'text-brown-dark fixed top-0 right-0 left-0 z-50 flex items-center justify-between p-4 py-2 transition-colors duration-300 md:justify-center md:py-5',
                 solidBg ? 'bg-cream' : 'bg-transparent'
             )}
         >
@@ -52,7 +52,7 @@ export function Nav() {
                     <Link
                         key={label}
                         href={href}
-                        className="font-handwriting text-[20px] leading-6 transition-opacity hover:opacity-70"
+                        className="font-handwriting text-[28px] leading-7 transition-opacity hover:opacity-70"
                     >
                         {label}
                     </Link>
@@ -68,19 +68,17 @@ export function Nav() {
                             className="flex items-center gap-2 py-2 transition-opacity hover:opacity-70"
                         >
                             <Menu size={20} />
-                            <span className="font-handwriting mt-0.5 text-[18px] leading-6">
-                                menu
-                            </span>
+                            <span className="font-handwriting text-[20px] leading-6">menu</span>
                         </button>
                     </SheetTrigger>
                     <SheetContent side="left" className="border-brown/20 bg-cream w-64 border-l">
                         <SheetTitle className="sr-only">Navigation</SheetTitle>
-                        <nav className="mt-12 flex flex-col gap-7">
+                        <nav className="mt-12 flex flex-col gap-5">
                             {navLinks.map(({ label, href }) => (
                                 <Link
                                     key={label}
                                     href={href}
-                                    className="font-handwriting text-[20px] leading-6 transition-opacity hover:opacity-70"
+                                    className="font-handwriting text-[24px] leading-6 transition-opacity hover:opacity-70"
                                 >
                                     {label}
                                 </Link>

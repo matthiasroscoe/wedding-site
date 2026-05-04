@@ -41,10 +41,10 @@ function AccommodationOption({
 }) {
     return (
         <div className="border-brown-dark/20 flex flex-col gap-2 border-t pt-8">
-            <h3 className="text-brown-dark font-sans text-xl font-medium tracking-wider">{name}</h3>
+            <h3 className="text-brown-dark font-body text-xl font-medium tracking-wider">{name}</h3>
             <Paragraph className="text-brown-dark text-base font-normal">{description}</Paragraph>
             {image && <Image src={image} alt={name} width={100} height={100} />}
-            <Link href={link} className="underline">
+            <Link href={link} className="font-body underline">
                 View
             </Link>
         </div>
@@ -92,7 +92,7 @@ export default function Home() {
                 </section>
 
                 <div className="mb-8 grid grid-cols-1 gap-4">
-                    <Heading2 className="mb-8">in&nbsp; Sitges</Heading2>
+                    <Heading2 className="mb-8">in Sitges</Heading2>
                     {accommodationOptions.map((option, idx) => (
                         <AccommodationOption key={idx} {...option} />
                     ))}

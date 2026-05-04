@@ -12,8 +12,11 @@
     --color-foreground: var(--color-brown-dark);
 
     /* fonts */
-    --font-handwriting: var(--font-homemade-apple);
-    --font-body: var(--font-work-sans);
+    /* --font-handwriting: var(--font-homemade-apple); */
+    --font-handwriting: var(--font-cedarville-cursive);
+    /* --font-handwriting: var(--font-beth-ellen); */
+    /* --font-body: var(--font-work-sans); */
+    --font-body: var(--font-goudy-bookletter-1911);
 
     /* palette */
     --color-cream: #fffae1;

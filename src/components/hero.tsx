@@ -105,21 +105,21 @@ export function Hero() {
 
                     <div
                         ref={headingRef}
-                        className="font-handwriting relative mt-[-41px] text-center text-[24px] leading-[34px] whitespace-pre opacity-0 md:mt-[-68px] md:text-[48px] md:leading-[58px] xl:mt-[-91px] xl:text-[48px] xl:leading-[64px]"
+                        className="font-handwriting relative mt-[-40px] w-full px-4 text-center text-[40px] leading-9 whitespace-pre opacity-0 md:mt-[-78px] md:text-[48px] md:leading-12 xl:mt-[-105px] xl:text-[48px]"
                     >
-                        {'Cat & Matt\nare getting married'}
+                        {'Cat & Matt\nare getting married!'}
                     </div>
 
                     <p
                         ref={invitedRef}
-                        className="font-body mt-8 mb-2 text-sm font-medium tracking-[0.12em] opacity-0 md:mt-14 md:text-base xl:mt-[75px] xl:tracking-wider"
+                        className="font-body mt-8 mb-0 text-sm font-medium tracking-[0.12em] opacity-0 md:mt-14 md:text-base xl:mt-[75px] xl:tracking-wider"
                     >
                         YOU&apos;RE INVITED
                     </p>
 
                     <p
                         ref={dateRef}
-                        className="font-handwriting text-center text-[26px] leading-9 opacity-0 md:text-[32px] md:leading-10"
+                        className="font-body text-center text-[26px] leading-9 opacity-0 md:text-[34px] md:leading-10"
                     >
                         29.05.2027
                     </p>

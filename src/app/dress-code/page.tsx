@@ -27,10 +27,10 @@ export default function Home() {
                         the day in the sun!
                     </Paragraph>
                     <div className="mb-4 flex items-center gap-4">
-                        <Link href="/moodboard" className="underline">
+                        <Link href="/moodboard" className="font-body underline">
                             Moodboard link or section
                         </Link>
-                        <Link href="/moodboard" className="underline">
+                        <Link href="/moodboard" className="font-body underline">
                             Colour palette link or section
                         </Link>
                     </div>

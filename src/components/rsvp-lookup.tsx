@@ -131,8 +131,8 @@ export function RsvpLookup({ email }: { email: string }) {
 
                 <div className="flex justify-center">
                     <Button type="submit" loading={mutation.isPending}>
-                        <span className="font-handwriting text-brown-dark ml-2 text-[28px] tracking-[0.15em]">
-                            {mutation.isPending ? 'Looking...' : 'Look up'}
+                        <span className="font-handwriting text-[28px]">
+                            {mutation.isPending ? 'Loading...' : 'Find RSVP'}
                         </span>
                     </Button>
                 </div>

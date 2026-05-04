@@ -9,7 +9,10 @@ export function Heading2({
 }) {
     return (
         <h1
-            className={cn('font-handwriting text-brown-dark text-[32px] leading-[38px]', className)}
+            className={cn(
+                'font-handwriting text-brown-dark text-[40px] leading-9 md:text-[48px] md:leading-[58px]',
+                className
+            )}
         >
             {children}
         </h1>
@@ -24,7 +27,12 @@ export function Heading3({
     children: React.ReactNode
 }) {
     return (
-        <h3 className={cn('font-handwriting text-brown-dark text-2xl leading-8', className)}>
+        <h3
+            className={cn(
+                'font-handwriting text-brown-dark text-[28px] leading-8 md:text-[32px] md:leading-[42px]',
+                className
+            )}
+        >
             {children}
         </h3>
     )
