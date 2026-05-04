@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Cedarville_Cursive, Lora, Goudy_Bookletter_1911, Beth_Ellen } from 'next/font/google'
 import { Providers } from './providers'
 import { AudioPlayer } from '@/components/audio-player'
+import { Footer } from '@/components/footer'
 import './globals.css'
 
 // const homemadeApple = Homemade_Apple({
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <body className="bg-cream flex min-h-full flex-col">
                 <Providers>
                     {children}
+                    <Footer />
                     <AudioPlayer />
                 </Providers>
             </body>
