@@ -186,7 +186,7 @@ export function RsvpForm() {
                 </div>
 
                 {mutation.isSuccess && mutation.data.error && (
-                    <div className="font-body bg-cream text-brown-dark rounded-xl border p-3 text-center">
+                    <div className="font-body bg-yellow text-brown-dark rounded-xl p-3 text-center">
                         <p className="text-sm">
                             You&apos;ve already RSVPed. If you need to change your RSVP, please{' '}
                             <a
