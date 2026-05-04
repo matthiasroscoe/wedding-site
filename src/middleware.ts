@@ -1,0 +1,21 @@
+import { NextResponse } from 'next/server'
+import type { NextRequest } from 'next/server'
+
+export function middleware(request: NextRequest) {
+    const isUnlocked = request.cookies.get('site_unlocked')?.value === '1'
+    const isPasswordPage = request.nextUrl.pathname === '/password'
+
+    if (!isUnlocked && !isPasswordPage) {
+        return NextResponse.redirect(new URL('/password', request.url))
+    }
+    if (isUnlocked && isPasswordPage) {
+        return NextResponse.redirect(new URL('/', request.url))
+    }
+    return NextResponse.next()
+}
+
+export const config = {
+    matcher: [
+        '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:png|jpg|jpeg|gif|svg|ico|mp3|webp|avif)).*)',
+    ],
+}

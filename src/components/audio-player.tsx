@@ -2,6 +2,7 @@
 
 import { useAudio } from '@/lib/audio-context'
 import { Pause, Play, Music2 } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 
 function formatTime(s: number) {
     if (!isFinite(s)) return '0:00'
@@ -11,38 +12,50 @@ function formatTime(s: number) {
 }
 
 export function AudioPlayer() {
+    const isPasswordPage = usePathname() === '/password'
+
     const { isPlaying, toggle, track, progress, duration } = useAudio()
     const pct = duration > 0 ? (progress / duration) * 100 : 0
 
+    if (isPasswordPage) return null
+
     return (
         <div className="fixed right-6 bottom-6 z-50 hidden md:block">
-            <div className="flex w-64 items-center gap-3 rounded-2xl border border-brown/20 bg-cream px-4 py-3 shadow-lg">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brown/10">
-                    <Music2 className="h-4 w-4 text-brown" />
+            <div className="border-brown/20 bg-cream flex w-64 items-center gap-3 rounded-2xl border px-4 py-3 shadow-lg">
+                <div className="bg-brown/10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full">
+                    <Music2 className="text-brown h-4 w-4" />
                 </div>
 
                 <div className="min-w-0 flex-1">
-                    <p className="font-body truncate text-xs font-medium text-brown-dark">
+                    <p className="font-body text-brown-dark truncate text-xs font-medium">
                         {track.title}
                     </p>
-                    <div className="mt-1.5 h-1 w-full overflow-hidden rounded-full bg-brown/15">
+                    <div className="bg-brown/15 mt-1.5 h-1 w-full overflow-hidden rounded-full">
                         <div
-                            className="h-full rounded-full bg-brown transition-all duration-300"
+                            className="bg-brown h-full rounded-full transition-all duration-300"
                             style={{ width: `${pct}%` }}
                         />
                     </div>
                     <div className="mt-1 flex justify-between">
-                        <span className="font-body text-[10px] text-brown/60">{formatTime(progress)}</span>
-                        <span className="font-body text-[10px] text-brown/60">{formatTime(duration)}</span>
+                        <span className="font-body text-brown/60 text-[10px]">
+                            {formatTime(progress)}
+                        </span>
+                        <span className="font-body text-brown/60 text-[10px]">
+                            {formatTime(duration)}
+                        </span>
                     </div>
                 </div>
 
                 <button
                     onClick={toggle}
                     aria-label={isPlaying ? 'Pause' : 'Play'}
-                    className="flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-full bg-brown text-cream transition-colors hover:bg-brown-dark"
+                    className="bg-brown text-cream hover:bg-brown-dark flex h-8 w-8 shrink-0 cursor-pointer items-center justify-center rounded-full transition-colors"
                 >
-                    {isPlaying ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5 translate-x-px" />}
+                    {isPlaying ? (
+                        <Pause className="h-3.5 w-3.5" />
+                    ) : (
+                        <Play className="h-3.5 w-3.5 translate-x-px" />
+                    )}
                 </button>
             </div>
         </div>
