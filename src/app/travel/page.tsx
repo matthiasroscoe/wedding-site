@@ -1,0 +1,93 @@
+import { Nav } from '@/components/nav'
+import { Heading2, Heading3, Paragraph } from '@/components/ui/typography'
+import { Main } from '@/components/main'
+import Image from 'next/image'
+import Link from 'next/link'
+
+const accommodationOptions = [
+    {
+        name: 'Hotel Platjador',
+        description:
+            'Located in central Sitges on the main promenade. Right next to the beach with a pool, rooftop bar and a late breakfast.',
+        // image: '/accommodation-1.jpg',
+        link: 'https://www.booking.com/hotel/es/platjador.en-gb.html',
+    },
+    {
+        name: 'Hotel Platjador',
+        description:
+            'Located in central Sitges on the main promenade. Right next to the beach with a pool, rooftop bar and a late breakfast.',
+        // image: '/accommodation-1.jpg',
+        link: 'https://www.booking.com/hotel/es/platjador.en-gb.html',
+    },
+    {
+        name: 'Hotel Platjador',
+        description:
+            'Located in central Sitges on the main promenade. Right next to the beach with a pool, rooftop bar and a late breakfast.',
+        // image: '/accommodation-1.jpg',
+        link: 'https://www.booking.com/hotel/es/platjador.en-gb.html',
+    },
+]
+
+function AccommodationOption({
+    name,
+    description,
+    image,
+    link,
+}: {
+    name: string
+    description: string
+    image?: string
+    link: string
+}) {
+    return (
+        <div className="border-brown-dark/20 flex flex-col gap-2 border-t pt-8">
+            <Heading3 className="text-brown-dark">{name}</Heading3>
+            <Paragraph className="text-brown-dark">{description}</Paragraph>
+            {image && <Image src={image} alt={name} width={100} height={100} />}
+            <Link href={link} className="underline">
+                View
+            </Link>
+        </div>
+    )
+}
+
+export default function Home() {
+    return (
+        <Main className="bg-straw min-h-screen pb-16">
+            <Nav />
+            <div className="mx-auto max-w-xl px-8 pt-12 md:pt-16">
+                <section className="mb-16">
+                    <Heading2 className="mb-10">getting there</Heading2>
+                    <Paragraph className="text-brown-dark mb-4">
+                        Barcelona Airport is the closest to the venue, about a 30-minute drive. From
+                        there, you can hop on a bus/train to Sitges (also around 30 minutes) or get
+                        a transfer to your accommodation.
+                    </Paragraph>
+                    <Paragraph className="text-brown-dark">
+                        On the wedding day, we’ll sort transport between Sitges and the venue (15min
+                        drive) to get everyone there and back.
+                    </Paragraph>
+                </section>
+
+                <section id="accommodation" className="mb-8">
+                    <Heading2 className="mb-8">accommodation</Heading2>
+                    <Paragraph className="text-brown-dark mb-4">
+                        Sitges is a beautiful seaside town just south of Barcelona, known for it’s
+                        beaches, nice restaurants and relaxed feel with plenty of hotels to choose
+                        from.
+                    </Paragraph>
+                    <Paragraph className="text-brown-dark mb-4">
+                        There are also some lovely villas up in the hills around Sitges and Sant
+                        Pere de Ribes if you’d prefer to be a bit closer to the venue.
+                    </Paragraph>
+                </section>
+
+                <div className="grid grid-cols-1 gap-4">
+                    {accommodationOptions.map((option, idx) => (
+                        <AccommodationOption key={idx} {...option} />
+                    ))}
+                </div>
+            </div>
+        </Main>
+    )
+}

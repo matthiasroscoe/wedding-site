@@ -3,7 +3,21 @@
     "allow": [
       "Bash(pnpm install *)",
       "Bash(pnpm add *)",
-      "Bash(pnpm exec *)"
+      "Bash(pnpm exec *)",
+      "mcp__plugin_paper-desktop_paper__get_guide",
+      "mcp__plugin_paper-desktop_paper__get_basic_info",
+      "mcp__plugin_paper-desktop_paper__get_selection",
+      "mcp__plugin_paper-desktop_paper__get_screenshot",
+      "mcp__plugin_paper-desktop_paper__get_jsx",
+      "Bash(pnpm dlx *)",
+      "mcp__plugin_paper-desktop_paper__get_children",
+      "mcp__plugin_paper-desktop_paper__get_fill_image",
+      "mcp__plugin_paper-desktop_paper__get_computed_styles",
+      "Bash(curl -sL \"https://app.paper.design/file-assets/01KQQFDF65BQ3PCA6YSF7QQ70A/01KQQP72BRB2YG7CKKQ3R9WDG5.jpg\" -o /Users/mattroscoe/Documents/side-projects/wedding-site/public/venue.jpg)",
+      "Bash(curl -sL \"https://app.paper.design/file-assets/01KQQFDF65BQ3PCA6YSF7QQ70A/01KQQND1F9X9PHRCWMQYHRJVFR.png\" -o /Users/mattroscoe/Documents/side-projects/wedding-site/public/venue-icon.png)",
+      "Bash(pnpm format:check)",
+      "Bash(pnpm format *)",
+      "Bash(grep *)"
     ]
   }
 }
