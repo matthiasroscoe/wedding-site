@@ -22,7 +22,7 @@ export function MainDetails() {
 
                     <Link
                         href="/rsvp"
-                        className="group border-brown-dark hover:bg-brown-dark/10 relative mt-10 inline-flex w-[240px] items-center justify-center rounded-[100%] border pt-5 pb-2 transition-colors"
+                        className="group bg-cream border-brown-dark hover:bg-brown-dark/10 text-brown-dark relative mt-10 inline-flex w-[240px] items-center justify-center rounded-[100%] border pt-5 pb-2 transition-colors"
                     >
                         <span className="font-handwriting ml-2 text-[32px] tracking-[0.15em]">
                             RSVP
