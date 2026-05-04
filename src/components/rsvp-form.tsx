@@ -92,10 +92,7 @@ export function RsvpForm() {
                 </Paragraph>
             </div>
 
-            <form
-                onSubmit={onSubmit}
-                className="font-body bg-yellow text-brown-dark flex flex-col gap-10 rounded-xl p-6"
-            >
+            <form onSubmit={onSubmit} className="font-body text-brown-dark flex flex-col gap-10">
                 {/* Email */}
                 <div className="flex flex-col gap-2">
                     <Label
