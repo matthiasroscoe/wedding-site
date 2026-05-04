@@ -10,7 +10,7 @@ const weddingDayItems = [
 
 export function Schedule() {
     return (
-        <section id="schedule" className="bg-cream">
+        <section id="schedule" className="bg-straw">
             <div className="container mx-auto px-8 py-14 md:py-24">
                 <div className="mb-24 md:mb-32">
                     <h2 className="font-handwriting text-brown-dark mb-8 text-center text-[32px] leading-[38px] md:mb-14">

@@ -61,28 +61,38 @@ export default function Home() {
                     <Paragraph className="text-brown-dark mb-4">
                         Barcelona Airport is the closest to the venue, about a 30-minute drive. From
                         there, you can hop on a bus/train to Sitges (also around 30 minutes) or get
-                        a transfer to your accommodation.
+                        a transfer to your accommodation. There are lots of rental car companies at
+                        the airport too.
                     </Paragraph>
                     <Paragraph className="text-brown-dark">
-                        On the wedding day, we’ll sort transport between Sitges and the venue (15min
-                        drive) to get everyone there and back.
+                        On the wedding day, we’ll organise transport between Sitges and the venue
+                        (15min drive) to get anyone staying in Sitges there and back.
                     </Paragraph>
                 </section>
 
-                <section id="accommodation" className="mb-8">
-                    <Heading2 className="mb-8">accommodation</Heading2>
+                {/* <Image
+                    src="/map.png"
+                    alt="Map of Sitges and the venue"
+                    width={1000}
+                    height={1000}
+                /> */}
+
+                <section id="accommodation" className="mb-16">
+                    <Heading2 className="mb-8">the area</Heading2>
                     <Paragraph className="text-brown-dark mb-4">
                         Sitges is a beautiful seaside town just south of Barcelona, known for it’s
                         beaches, nice restaurants and relaxed feel with plenty of hotels to choose
                         from.
                     </Paragraph>
                     <Paragraph className="text-brown-dark mb-4">
-                        There are also some lovely villas up in the hills around Sitges and Sant
-                        Pere de Ribes if you’d prefer to be a bit closer to the venue.
+                        The venue is 15 minutes drive inland from Sitges near the small town of St
+                        Pere de Ribes. There are some lovely villas up in the hills around the venue
+                        if you’d prefer to be a bit closer.
                     </Paragraph>
                 </section>
 
-                <div className="grid grid-cols-1 gap-4">
+                <div className="mb-8 grid grid-cols-1 gap-4">
+                    <Heading2 className="mb-8">in&nbsp; Sitges</Heading2>
                     {accommodationOptions.map((option, idx) => (
                         <AccommodationOption key={idx} {...option} />
                     ))}

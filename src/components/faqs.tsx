@@ -4,6 +4,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from '@/components/ui/accordion'
+import { cn } from '@/lib/utils'
 
 const faqs = [
     {
@@ -28,9 +29,9 @@ const faqs = [
     },
 ]
 
-export function Faqs() {
+export function Faqs({ className }: { className?: string }) {
     return (
-        <section id="faqs" className="bg-straw text-brown">
+        <section id="faqs" className={cn('bg-straw text-brown-dark', className)}>
             <div className="font-body container mx-auto px-4 pt-18 pb-24 sm:px-8 md:py-24">
                 <h2 className="font-handwriting text-center text-[32px] leading-[38px]">faqs</h2>
 

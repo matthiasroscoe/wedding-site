@@ -10,7 +10,7 @@ export default function Home() {
             <Hero />
             <MainDetails />
             <Schedule />
-            <Faqs />
+            <Faqs className="pt-0 md:pt-0" />
         </Main>
     )
 }
