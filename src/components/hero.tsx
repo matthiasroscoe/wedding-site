@@ -6,11 +6,11 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 
 const polaroids = [
-    { rotation: -15, x: 8, y: 78, src: '/venue.jpg' },
-    { rotation: 12, x: 192, y: 58, src: '/venue-2.jpg' },
-    { rotation: -7.78, x: 30, y: 53, src: '/venue-3.jpg' },
-    { rotation: 1.88, x: 161, y: 19, src: '/venue-4.jpg' },
-    { rotation: -1.96, x: 94, y: 54, src: '/venue-5.jpg' },
+    { rotation: -15, x: 8, y: 78, src: '/about-us/Engagement.jpg' },
+    { rotation: 12, x: 192, y: 58, src: '/about-us/Glasto.jpg' },
+    { rotation: -7.78, x: 30, y: 53, src: '/about-us/G&T_s Wedding.jpg' },
+    { rotation: 1.88, x: 161, y: 19, src: '/about-us/Madeira.jpg' },
+    { rotation: -1.96, x: 94, y: 54, src: '/about-us/Rome.jpg' },
 ]
 
 export function Hero() {
