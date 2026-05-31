@@ -21,7 +21,7 @@ const polaroids = [
     {
         year: 2019,
         caption: 'First trip back to Donegal',
-        src: '/about-us/Lagg.jpg',
+        src: '/about-us/knockameny.jpg',
         xPercent: 54,
         yOffsetVh: 12,
         rotation: 6,
