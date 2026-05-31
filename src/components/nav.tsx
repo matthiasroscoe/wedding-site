@@ -54,7 +54,7 @@ export function Nav() {
                     <Link
                         key={label}
                         href={href}
-                        className="font-handwriting text-[28px] leading-7 transition-opacity hover:opacity-70"
+                        className="font-handwriting text-[24px] leading-7 transition-opacity hover:opacity-70 xl:text-[28px]"
                     >
                         {label}
                     </Link>
