@@ -57,12 +57,12 @@ function RsvpResult({ record, email }: { record: NonNullable<RsvpRecord>; email:
             )}
 
             <p className="text-brown-dark text-sm">
-                Need to make changes?{' '}
+                If you need to make a change{' '}
                 <a
                     href={`mailto:${CONTACT_EMAIL}?subject=${CHANGE_SUBJECT}&body=Hi,\n\nI'd like to update my RSVP.\n\nEmail: ${email}\n\nChanges:\n`}
                     className="hover:text-brown-dark underline underline-offset-2"
                 >
-                    Email us
+                    email us
                 </a>{' '}
                 and we&apos;ll update it for you.
             </p>

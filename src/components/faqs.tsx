@@ -10,7 +10,7 @@ import { Heading2 } from './ui/typography'
 const faqs = [
     {
         question: 'When should I RSVP by?',
-        answer: 'Please RSVP by 1st August 2026.',
+        answer: 'Please RSVP by 1st February 2027.',
     },
     {
         question: 'Are kids welcome?',

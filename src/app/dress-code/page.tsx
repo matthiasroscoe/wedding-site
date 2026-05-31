@@ -2,6 +2,8 @@ import { Nav } from '@/components/nav'
 import { Heading2, Paragraph } from '@/components/ui/typography'
 import { Main } from '@/components/main'
 import Link from 'next/link'
+import { palette } from '@/lib/palette'
+import { cn } from '@/lib/utils'
 
 export default function Home() {
     return (
@@ -17,22 +19,26 @@ export default function Home() {
                         Dresses or dressy trousers are perfect, and for the lads a shirt and blazer
                         with chinos or suit trousers works well. Ties are completely optional.
                     </Paragraph>
-                    <Paragraph className="mb-4">
+                    <Paragraph className="border-brown-dark/20 mb-6 border-b pb-6">
                         The ceremony will be on grass and the ground can be a bit uneven, so you
                         might want to leave the stilettos at home! Block/kitten/wedge will be the
                         safest bet.
                     </Paragraph>
-                    <Paragraph className="mb-8">
-                        The main thing is to look sharp but still feel comfortable enough to enjoy
-                        the day in the sun!
+                    <Paragraph className="mb-6">
+                        Below is our wedding colour palette but you are welcome to wear any colour
+                        you like (except white!)
                     </Paragraph>
-                    <div className="mb-4 flex items-center gap-4">
-                        <Link href="/moodboard" className="font-body underline">
-                            Moodboard link or section
-                        </Link>
-                        <Link href="/moodboard" className="font-body underline">
-                            Colour palette link or section
-                        </Link>
+                    <div className="mb-8 flex flex-wrap gap-3">
+                        {palette.map((hex, idx) => (
+                            <span
+                                key={hex}
+                                className={cn(
+                                    'block size-8 rounded-full',
+                                    idx === 0 ? 'border-brown-dark/20 border' : ''
+                                )}
+                                style={{ backgroundColor: hex }}
+                            />
+                        ))}
                     </div>
                 </section>
             </div>

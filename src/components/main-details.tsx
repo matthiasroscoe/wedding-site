@@ -18,7 +18,7 @@ export function MainDetails() {
                         </p>
                         <p>Saturday, 29th May 2027</p>
                         <p className="mb-8">2pm - Midnight</p>
-                        <p>Please RSVP by 1st August 2026.</p>
+                        <p>Please RSVP by 1st February 2027.</p>
                     </div>
 
                     <Link

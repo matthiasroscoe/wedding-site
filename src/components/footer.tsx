@@ -27,7 +27,7 @@ export function Footer() {
                     {/* Contact */}
                     <div className="flex flex-col gap-1">
                         <span className="font-body text-brown-dark/70 text-xs font-medium tracking-widest uppercase">
-                            Questions?
+                            Email us with any questions
                         </span>
                         <a
                             href={`mailto:${CONTACT_EMAIL}`}

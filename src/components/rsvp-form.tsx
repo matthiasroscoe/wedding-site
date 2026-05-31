@@ -82,7 +82,7 @@ export function RsvpForm() {
             <div className="mb-10">
                 <Heading2 className="mb-8">RSVP</Heading2>
                 <Paragraph className="text-brown-dark mb-4">
-                    Let us know if you can make it to our wedding. Please RSVP by 1st August 2026.
+                    Let us know if you can make it to our wedding. Please RSVP by 1st February 2027.
                 </Paragraph>
                 <Paragraph className="text-brown-dark mb-4">
                     Not sure if you RSVPed or want to change your RSVP?{' '}
