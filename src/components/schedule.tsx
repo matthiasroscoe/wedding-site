@@ -17,7 +17,7 @@ const weddingDayItems = [
     { time: '4pm', name: 'Aperitivo & Music' },
     { time: '6pm', name: 'Dinner & Speeches' },
     { time: '9pm', name: 'Band & Boogie' },
-    { time: '12:30am', name: 'Taxis & Bus' },
+    { time: '12:30am', name: 'Taxis' },
 ]
 
 export function Schedule() {
@@ -51,20 +51,19 @@ export function Schedule() {
                 </div>
 
                 <div className="mb-24">
-                    <Heading2 className="mb-8 text-center">The Day After</Heading2>
+                    <Heading2 className="mb-14 text-center lg:mb-8">The Day After</Heading2>
 
                     <div className="flex flex-col items-center">
                         <p className="font-handwriting text-3xl leading-8 font-bold">2pm</p>
                         <p className="font-handwriting mt-2 text-3xl leading-8">
                             Paella &amp; Pool Party
                         </p>
-                        <div className="flex flex-col items-center">
+                        <div className="flex flex-col items-center text-center">
                             <p className="font-body mt-4 text-base leading-8">
-                                &bull; Drinks, food and music by the pool
+                                Drinks, food and music by the pool
                             </p>
                             <p className="font-body -mt-1 text-base leading-8">
-                                &bull; Dress code: Relaxed beach/pool vibes, optional dip in the
-                                pool
+                                Dress code: Relaxed beach/pool vibes, optional dip in the pool
                             </p>
                         </div>
                     </div>

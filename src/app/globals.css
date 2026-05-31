@@ -28,6 +28,11 @@
     --color-forest: #204108;
 }
 
+@keyframes equalizer-bar {
+    0%, 100% { transform: scaleY(0.2); }
+    50% { transform: scaleY(1); }
+}
+
 body {
     background: var(--color-cream);
     color: var(--color-brown-dark);

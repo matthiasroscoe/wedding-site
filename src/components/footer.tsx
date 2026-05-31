@@ -12,7 +12,7 @@ export function Footer() {
 
     return (
         <footer className={cn('border-brown-dark/20 border-t', bgClass)}>
-            <div className="container mx-auto px-8 py-10 md:py-14">
+            <div className="container mx-auto px-8 pt-10 pb-32 md:pt-14 md:pb-20">
                 <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
                     {/* Branding */}
                     <div className="flex flex-col gap-1">

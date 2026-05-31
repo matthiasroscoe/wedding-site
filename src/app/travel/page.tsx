@@ -148,8 +148,8 @@ export default function Home() {
                 <div className="mb-16 grid grid-cols-1 gap-4">
                     <Heading2 className="mb-4">hotels in Sitges</Heading2>
                     <Paragraph className="text-brown-dark mb-8">
-                        There&apos;s lots of hotels in Sitges to choose from. Here&apos;s a few
-                        we&apos;ve found.
+                        There&apos;s lots of hotels in Sitges to choose from - here&apos;s a few
+                        we&apos;ve found:
                     </Paragraph>
                     {hotelOptions.map((option, idx) => (
                         <AccommodationOption key={idx} {...option} isFirst={idx === 0} />

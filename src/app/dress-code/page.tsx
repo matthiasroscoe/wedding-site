@@ -25,8 +25,8 @@ export default function Home() {
                         safest bet.
                     </Paragraph>
                     <Paragraph className="mb-6">
-                        Below is our wedding colour palette but you are welcome to wear any colour
-                        you like (except white!)
+                        Our bridal party will be wearing our wedding colours below but you are
+                        welcome to wear any colour you like (except white!)
                     </Paragraph>
                     <div className="mb-8 flex flex-wrap gap-3">
                         {palette.map((hex, idx) => (

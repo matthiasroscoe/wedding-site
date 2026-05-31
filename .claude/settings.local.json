@@ -33,7 +33,9 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" --cookie \"site_unlocked=1\" http://localhost:3001/our-story)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" --cookie \"site_unlocked=1\" http://localhost:3001/travel)",
       "Bash(curl -s --cookie \"site_unlocked=1\" http://localhost:3001/our-story)",
-      "Bash(sips -g pixelWidth -g pixelHeight /Users/mattroscoe/Documents/side-projects/wedding-site/public/about-us/*.jpg /Users/mattroscoe/Documents/side-projects/wedding-site/public/about-us/*.JPG)"
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/mattroscoe/Documents/side-projects/wedding-site/public/about-us/*.jpg /Users/mattroscoe/Documents/side-projects/wedding-site/public/about-us/*.JPG)",
+      "Bash(pnpm config *)",
+      "Bash(pnpm db:generate)"
     ]
   }
 }

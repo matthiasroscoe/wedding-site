@@ -70,16 +70,6 @@ const polaroids = [
     },
     {
         year: 2024,
-        caption: 'Making it to the top of the Thorang La Pass in Nepal',
-        src: '/about-us/Nepal.jpg',
-        xPercent: 56,
-        yOffsetVh: 5,
-        rotation: -11,
-        parallax: -42,
-        orientation: 'portrait' as const,
-    },
-    {
-        year: 2024,
         caption: 'A long weekend in Rome to consume all the wine and pasta!',
         src: '/about-us/Rome.jpg',
         xPercent: 8,
@@ -96,6 +86,16 @@ const polaroids = [
         yOffsetVh: 11,
         rotation: 9,
         parallax: -18,
+        orientation: 'portrait' as const,
+    },
+    {
+        year: 2024,
+        caption: 'Making it to the top of the Thorang La Pass in Nepal',
+        src: '/about-us/Nepal.jpg',
+        xPercent: 56,
+        yOffsetVh: 5,
+        rotation: -11,
+        parallax: -42,
         orientation: 'portrait' as const,
     },
     {

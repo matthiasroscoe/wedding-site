@@ -1,9 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { Menu, Pause, Play, SkipForward } from 'lucide-react'
+import { Menu, Pause, Play } from 'lucide-react'
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import { useAudio } from '@/lib/audio-context'
+import { SHOW_MOBILE_HEADER_AUDIO } from '@/components/audio-player'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { cn } from '@/lib/utils'
@@ -19,7 +20,7 @@ export const navLinks = [
 ]
 
 export function Nav() {
-    const { isPlaying, toggle, nextTrack, track } = useAudio()
+    const { isPlaying, toggle, track } = useAudio()
     const pathname = usePathname()
     const isHome = pathname === '/'
     const [pastHero, setPastHero] = useState(false)
@@ -90,7 +91,7 @@ export function Nav() {
             </div>
 
             {/* Mobile audio controls */}
-            <div className="flex items-center gap-2 md:hidden">
+            {SHOW_MOBILE_HEADER_AUDIO && <div className="flex items-center gap-2 md:hidden">
                 <span className="font-body max-w-[120px] truncate text-xs font-medium">
                     {track.title}
                 </span>
@@ -105,14 +106,7 @@ export function Nav() {
                         <Play className="h-3 w-3 translate-x-px" />
                     )}
                 </button>
-                <button
-                    onClick={nextTrack}
-                    aria-label="Next track"
-                    className="bg-brown text-cream hover:bg-brown-dark flex h-7 w-7 shrink-0 cursor-pointer items-center justify-center rounded-full transition-colors"
-                >
-                    <SkipForward className="h-3 w-3" />
-                </button>
-            </div>
+            </div>}
         </header>
     )
 }

@@ -8,3 +8,10 @@ export const rsvps = pgTable('rsvps', {
     dietaryNotes: text('dietary_notes'),
     createdAt: timestamp('created_at').defaultNow().notNull(),
 })
+
+export const songRequests = pgTable('song_requests', {
+    id: serial('id').primaryKey(),
+    name: text('name').notNull(),
+    track: text('track').notNull(),
+    createdAt: timestamp('created_at').defaultNow().notNull(),
+})

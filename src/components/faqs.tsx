@@ -14,22 +14,6 @@ const faqs = [
         answer: 'Please RSVP by 1st February 2027.',
     },
     {
-        question: 'Are kids welcome?',
-        answer: "As much as we would love to have everyone there, we will not be including kids in our wedding day. You are more than welcome to bring them along to day 2 if they come out with you. We'll happily make an exception for breastfeeding babies though!",
-    },
-    {
-        question: 'Will transportation be provided?',
-        answer: 'We will be organising transport on the wedding day to and from Sitges (around 15 minutes drive) and share taxi numbers closer to the day.',
-    },
-    {
-        question: 'Is there parking at the venue?',
-        answer: 'There is plenty of parking at entrance to Can Ramonet.',
-    },
-    {
-        question: 'Is it okay to take pictures with our phones and cameras during the wedding?',
-        answer: 'Yes! We would love for you to take photos after the ceremony. However, please refrain from taking pictures during the ceremony.',
-    },
-    {
         question: 'Where is the venue?',
         answer: (
             <>
@@ -44,13 +28,29 @@ const faqs = [
             </>
         ),
     },
+    {
+        question: 'Is there parking at the venue?',
+        answer: 'There is plenty of parking at entrance to Can Ramonet.',
+    },
+    {
+        question: 'Will transportation be provided?',
+        answer: 'We will be organising transport on the wedding day to and from Sitges (around 15 minutes drive) and share taxi numbers closer to the day.',
+    },
+    {
+        question: 'Are kids welcome?',
+        answer: "As much as we would love to have everyone there, we will not be including kids in our wedding day. You are more than welcome to bring them along to day 2 if they come out with you. We'll happily make an exception for breastfeeding babies though!",
+    },
+    {
+        question: 'Is it okay to take pictures with our phones and cameras during the wedding?',
+        answer: 'Yes! We would love for you to take photos after the ceremony. However, please refrain from taking pictures during the ceremony.',
+    },
 ]
 
 export function Faqs({ className }: { className?: string }) {
     return (
         <section id="faqs" className={cn('bg-yellow text-brown-dark', className)}>
             <div className="font-body container mx-auto px-8 pt-2 pb-24">
-                <Heading2 className="mb-8 text-center">faqs</Heading2>
+                <Heading2 className="mb-8 text-center">Faqs</Heading2>
 
                 <div className="mx-auto mt-8 max-w-[700px] text-lg">
                     <Accordion type="multiple">
