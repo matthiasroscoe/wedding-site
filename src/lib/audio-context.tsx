@@ -24,6 +24,7 @@ function tryPlay(audio: HTMLAudioElement, onPlaying: () => void) {
 export function AudioProvider({ children }: { children: React.ReactNode }) {
     const pathname = usePathname()
     const pathnameRef = useRef(pathname)
+    pathnameRef.current = pathname
 
     const audioRef = useRef<HTMLAudioElement | null>(null)
     const isPlayingRef = useRef(false)
@@ -37,10 +38,16 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
         setIsPlaying(true)
     }, [])
 
+    const markPaused = useCallback(() => {
+        isPlayingRef.current = false
+        setIsPlaying(false)
+    }, [])
+
     const attemptAutoplay = useCallback(
         (audio: HTMLAudioElement) => {
             if (pathnameRef.current === '/password') return
             if (autoplayedForRef.current === audio) return
+            if (isPlayingRef.current) return
 
             audio
                 .play()
@@ -53,6 +60,10 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
         [markPlaying]
     )
 
+    const attemptAutoplayRef = useRef(attemptAutoplay)
+    attemptAutoplayRef.current = attemptAutoplay
+
+    // Create the audio element once — never tie this to pathname or callbacks
     useEffect(() => {
         const audio = new Audio(TRACK.src)
         audio.preload = 'auto'
@@ -60,50 +71,64 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
 
         const onTimeUpdate = () => setProgress(audio.currentTime)
         const onLoadedMetadata = () => setDuration(audio.duration)
+        const onPlay = () => {
+            isPlayingRef.current = true
+            setIsPlaying(true)
+        }
+        const onPause = () => {
+            if (audio.ended) return
+            isPlayingRef.current = false
+            setIsPlaying(false)
+        }
         const onEnded = () => {
             audio.currentTime = 0
             isPlayingRef.current = false
             setIsPlaying(false)
         }
-        const onCanPlayThrough = () => attemptAutoplay(audio)
+        const onCanPlayThrough = () => attemptAutoplayRef.current(audio)
 
         audio.addEventListener('timeupdate', onTimeUpdate)
         audio.addEventListener('loadedmetadata', onLoadedMetadata)
+        audio.addEventListener('play', onPlay)
+        audio.addEventListener('pause', onPause)
         audio.addEventListener('ended', onEnded)
         audio.addEventListener('canplaythrough', onCanPlayThrough, { once: true })
 
         if (audio.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
-            attemptAutoplay(audio)
+            attemptAutoplayRef.current(audio)
         }
 
         return () => {
             audio.pause()
             audio.removeEventListener('timeupdate', onTimeUpdate)
             audio.removeEventListener('loadedmetadata', onLoadedMetadata)
+            audio.removeEventListener('play', onPlay)
+            audio.removeEventListener('pause', onPause)
             audio.removeEventListener('ended', onEnded)
             audio.removeEventListener('canplaythrough', onCanPlayThrough)
             if (autoplayedForRef.current === audio) autoplayedForRef.current = null
         }
-    }, [attemptAutoplay])
+    }, [])
 
+    // Only attempt autoplay after leaving the password page (not on every navigation)
     useEffect(() => {
+        if (pathname === '/password') return
         const audio = audioRef.current
         if (!audio) return
-        attemptAutoplay(audio)
-    }, [pathname, attemptAutoplay])
+        attemptAutoplayRef.current(audio)
+    }, [pathname])
 
     const toggle = useCallback(() => {
         const audio = audioRef.current
         if (!audio) return
         if (isPlayingRef.current) {
             audio.pause()
-            isPlayingRef.current = false
-            setIsPlaying(false)
+            markPaused()
         } else {
             if (audio.ended) audio.currentTime = 0
             tryPlay(audio, markPlaying)
         }
-    }, [markPlaying])
+    }, [markPlaying, markPaused])
 
     return (
         <AudioContext.Provider value={{ isPlaying, toggle, track: TRACK, progress, duration }}>
