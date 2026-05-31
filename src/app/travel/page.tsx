@@ -3,6 +3,7 @@ import { Heading2, Paragraph } from '@/components/ui/typography'
 import { Main } from '@/components/main'
 import Image from 'next/image'
 import Link from 'next/link'
+import { cn } from '@/lib/utils'
 
 const villaOptions = [
     {
@@ -55,15 +56,22 @@ function AccommodationOption({
     sleeps,
     image,
     link,
+    isFirst,
 }: {
     name: string
     description: string
     sleeps?: number
     image?: string
     link: string
+    isFirst: boolean
 }) {
     return (
-        <div className="border-brown-dark/20 flex flex-col gap-2 border-t pt-8">
+        <div
+            className={cn(
+                'border-brown-dark/20 flex flex-col gap-2 border-t pt-8',
+                isFirst && 'border-none pt-0'
+            )}
+        >
             <div className="flex items-baseline justify-between gap-4">
                 <h3 className="text-brown-dark font-body text-xl font-medium tracking-wider">
                     {name}
@@ -95,14 +103,16 @@ export default function Home() {
                 <section className="mb-16">
                     <Heading2 className="mb-10">getting there</Heading2>
                     <Paragraph className="text-brown-dark mb-4">
-                        Barcelona Airport is the closest to the venue, about a 30-minute drive. From
-                        there, you can hop on a bus/train to Sitges (also around 30 minutes) or get
-                        a transfer to your accommodation. There are lots of rental car companies at
-                        the airport too.
+                        Barcelona airport is about a 30 minute drive to the venue. There are lots of
+                        rental car companies to choose from or you can hop on a bus/train to Sitges
+                        (also around 30 minutes).
+                    </Paragraph>
+                    <Paragraph className="text-brown-dark mb-4">
+                        On the wedding day we&apos;ll organise transport between Sitges and the
+                        venue (15min drive) for anyone staying there.
                     </Paragraph>
                     <Paragraph className="text-brown-dark">
-                        On the wedding day, we&apos;ll organise transport between Sitges and the
-                        venue (15min drive) to get anyone staying in Sitges there and back.
+                        We recommend booking flights and accommodation as early as possible!
                     </Paragraph>
                 </section>
 
@@ -118,19 +128,27 @@ export default function Home() {
                         Pere de Ribes. There are some lovely villas up in the hills around the venue
                         if you&apos;d prefer to be a bit closer.
                     </Paragraph>
+                    <Paragraph className="text-brown-dark mb-4">
+                        If anyone is looking to make a holiday of it, we recommend the Costa Brava,
+                        a short drive away just north of Barcelona.
+                    </Paragraph>
                 </section>
 
-                <div className="mb-8 grid grid-cols-1 gap-4">
-                    <Heading2 className="mb-8">hotels in Sitges</Heading2>
+                <div className="mb-16 grid grid-cols-1 gap-4">
+                    <Heading2 className="mb-4">hotels in Sitges</Heading2>
+                    <Paragraph className="text-brown-dark mb-8">
+                        There&apos;s lots of hotels in Sitges to choose from. Here&apos;s a few
+                        we&apos;ve found.
+                    </Paragraph>
                     {hotelOptions.map((option, idx) => (
-                        <AccommodationOption key={idx} {...option} />
+                        <AccommodationOption key={idx} {...option} isFirst={idx === 0} />
                     ))}
                 </div>
 
-                <div className="mb-16 grid grid-cols-1 gap-4">
+                <div className="mb-8 grid grid-cols-1 gap-4">
                     <Heading2 className="mb-8">villas</Heading2>
                     {villaOptions.map((option, idx) => (
-                        <AccommodationOption key={idx} {...option} />
+                        <AccommodationOption key={idx} {...option} isFirst={idx === 0} />
                     ))}
                 </div>
             </div>
