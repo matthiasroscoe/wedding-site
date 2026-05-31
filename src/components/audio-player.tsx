@@ -15,7 +15,7 @@ const bars = [
 
 function EqualizerBars({ playing }: { playing: boolean }) {
     return (
-        <div className="mb-[1px] flex h-2.5 items-end gap-px">
+        <div className="mb-[1px] flex h-2.5 items-end gap-px md:h-3">
             {bars.map((bar, i) => (
                 <span
                     key={i}
@@ -41,11 +41,11 @@ export function AudioPlayer() {
 
     return (
         <div className="fixed bottom-6 left-1/2 z-50 flex -translate-x-1/2 md:right-6 md:left-auto md:translate-x-0">
-            <div className="bg-cream border-brown/20 flex min-w-[250px] items-center gap-3 rounded-full border py-2 pr-0 pl-4 shadow-md">
-                <Music className="text-brown-dark/50 h-3.5 w-3.5 shrink-0" />
+            <div className="bg-cream border-brown/20 flex min-w-[250px] items-center gap-3 rounded-full border py-2 pr-0 pl-4 shadow-md md:pr-2">
+                <Music className="text-brown-dark/50 h-3.5 w-3.5 shrink-0 md:h-4 md:w-4" />
                 <div className="flex flex-col items-start gap-0.5">
                     <div className="flex items-center gap-1.5">
-                        <span className="font-body text-brown-dark text-xs font-medium">
+                        <span className="font-body text-brown-dark text-xs font-medium md:text-sm">
                             {track.title}
                         </span>
                         <EqualizerBars playing={isPlaying} />
@@ -55,12 +55,12 @@ export function AudioPlayer() {
                 <button
                     onClick={toggle}
                     aria-label={isPlaying ? 'Pause' : 'Play'}
-                    className="bg-brown text-cream hover:bg-brown-dark flex h-7 w-7 shrink-0 cursor-pointer items-center justify-center rounded-full transition-colors"
+                    className="bg-brown text-cream hover:bg-brown-dark flex h-7 w-7 shrink-0 cursor-pointer items-center justify-center rounded-full transition-colors md:h-8 md:w-8"
                 >
                     {isPlaying ? (
-                        <Pause className="h-3 w-3" />
+                        <Pause className="h-3 w-3 md:h-3.5 md:w-3.5" />
                     ) : (
-                        <Play className="h-3 w-3 translate-x-px" />
+                        <Play className="h-3 w-3 translate-x-px md:h-3.5 md:w-3.5" />
                     )}
                 </button>
             </div>

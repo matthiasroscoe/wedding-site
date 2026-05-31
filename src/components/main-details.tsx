@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { CONTACT_EMAIL, CONTACT_PHONE } from '@/lib/constants'
+import { Button } from './ui/button'
 import { Heading2 } from './ui/typography'
 
 export function MainDetails() {
@@ -21,14 +21,9 @@ export function MainDetails() {
                         <p>Please RSVP by 1st February 2027.</p>
                     </div>
 
-                    <Link
-                        href="/#rsvp"
-                        className="group bg-cream border-brown-dark hover:bg-yellow hover:border-yellow text-brown-dark relative mt-10 inline-flex w-[240px] items-center justify-center rounded-[100%] border pt-5 pb-2 transition-colors"
-                    >
-                        <span className="font-handwriting ml-2 text-[32px] tracking-[0.15em]">
-                            RSVP
-                        </span>
-                    </Link>
+                    <Button href="/#rsvp" className="mt-10">
+                        <span className="font-handwriting text-[28px] tracking-[0.15em]">RSVP</span>
+                    </Button>
 
                     <div className="relative h-[170px] w-[179px]">
                         <Image

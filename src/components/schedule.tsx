@@ -12,12 +12,12 @@ const LG_COL_START = [
 ] as const
 
 const weddingDayItems = [
-    { time: '2pm', name: 'Arrival & Welcome Drink' },
-    { time: '3pm', name: 'Ceremony' },
-    { time: '4pm', name: 'Aperitivo & Music' },
-    { time: '6pm', name: 'Dinner & Speeches' },
-    { time: '9pm', name: 'Band & Boogie' },
-    { time: '12:30am', name: 'Taxis' },
+    { time: '2pm', name: 'arrival & welcome drink' },
+    { time: '3pm', name: 'ceremony' },
+    { time: '4pm', name: 'aperitivo & music' },
+    { time: '6pm', name: 'dinner & speeches' },
+    { time: '9pm', name: 'band & boogie' },
+    { time: '12:30am', name: 'taxis' },
 ]
 
 export function Schedule() {
@@ -56,7 +56,7 @@ export function Schedule() {
                     <div className="flex flex-col items-center">
                         <p className="font-handwriting text-3xl leading-8 font-bold">2pm</p>
                         <p className="font-handwriting mt-2 text-3xl leading-8">
-                            Paella &amp; Pool Party
+                            paella &amp; pool party
                         </p>
                         <div className="flex flex-col items-center text-center">
                             <p className="font-body mt-4 text-base leading-8">

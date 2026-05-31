@@ -45,7 +45,7 @@ export function SongRequestDialog() {
         <Dialog open={open} onOpenChange={setOpen}>
             <button
                 onClick={() => setOpen(true)}
-                className="font-body text-brown-dark/80 hover:text-brown-dark cursor-pointer text-xs underline underline-offset-2 transition-colors hover:underline"
+                className="font-body text-brown-dark/80 hover:text-brown-dark cursor-pointer text-xs underline underline-offset-2 transition-colors hover:underline md:text-sm"
             >
                 Request a song for the dancefloor
             </button>

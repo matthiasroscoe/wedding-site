@@ -2,6 +2,7 @@
 
 import { Nav } from '@/components/nav'
 import { Main } from '@/components/main'
+import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
