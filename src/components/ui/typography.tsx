@@ -1,5 +1,24 @@
 import { cn } from '@/lib/utils'
 
+export function Heading1({
+    className,
+    children,
+}: {
+    className?: string
+    children: React.ReactNode
+}) {
+    return (
+        <h1
+            className={cn(
+                'font-handwriting text-brown-dark text-[40px] leading-9 md:text-[48px] md:leading-[58px] lg:text-[56px] lg:leading-[66px]',
+                className
+            )}
+        >
+            {children}
+        </h1>
+    )
+}
+
 export function Heading2({
     className,
     children,

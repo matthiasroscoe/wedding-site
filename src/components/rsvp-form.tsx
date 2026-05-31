@@ -213,7 +213,7 @@ export function RsvpForm() {
                     </p>
                 )}
 
-                <div className="flex justify-center pt-2">
+                <div className="flex justify-start pt-2">
                     <Button type="submit" loading={mutation.isPending}>
                         <span className="font-handwriting text-[28px] tracking-[0.15em]">
                             {mutation.isPending ? 'Sending…' : 'Send RSVP'}

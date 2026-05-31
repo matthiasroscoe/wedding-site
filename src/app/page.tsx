@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import { Hero } from '@/components/hero'
 import { MainDetails } from '@/components/main-details'
 import { Schedule } from '@/components/schedule'
+import { TravelAccommodation } from '@/components/travel-accommodation'
+import { DressCode } from '@/components/dress-code'
+import { RsvpSection } from '@/components/rsvp-section'
 import { Faqs } from '@/components/faqs'
 import { Main } from '@/components/main'
 import { SITE_DESCRIPTION, SITE_NAME } from '@/lib/site-metadata'
@@ -18,7 +21,10 @@ export default function Home() {
             <Hero />
             <MainDetails />
             <Schedule />
-            <Faqs className="pt-0 md:pt-0" />
+            <TravelAccommodation />
+            <DressCode />
+            <RsvpSection />
+            <Faqs />
         </Main>
     )
 }

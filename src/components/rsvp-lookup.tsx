@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button'
 import { Heading2, Paragraph } from '@/components/ui/typography'
 import { lookupRsvp } from '@/lib/actions/rsvp'
 import { CONTACT_EMAIL, CHANGE_SUBJECT } from '@/lib/constants'
+import Link from 'next/link'
 
 const schema = z.object({
     email: z.string().email('Please enter a valid email address'),
@@ -76,9 +77,9 @@ function RsvpNotFound() {
             <p className="text-brown-dark">No RSVP found for that email address.</p>
             <p className="text-brown-dark text-sm">
                 It looks like you haven&apos;t RSVPed yet. You can{' '}
-                <a href="/rsvp" className="underline underline-offset-2">
+                <Link href="/#rsvp" className="underline underline-offset-2">
                     RSVP here
-                </a>
+                </Link>
                 .
             </p>
         </div>
@@ -129,7 +130,7 @@ export function RsvpLookup({ email }: { email: string }) {
                     {errors.email && <p className="text-sm text-red-700">{errors.email.message}</p>}
                 </div>
 
-                <div className="flex justify-center">
+                <div className="flex justify-start">
                     <Button type="submit" loading={mutation.isPending}>
                         <span className="font-handwriting text-[28px]">
                             {mutation.isPending ? 'Loading...' : 'Find RSVP'}

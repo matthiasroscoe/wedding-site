@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import { Nav } from '@/components/nav'
 import { RsvpLookup } from '@/components/rsvp-lookup'
 import { subpageMetadata } from '@/lib/site-metadata'
+import { Main } from '@/components/main'
 
 export const metadata: Metadata = subpageMetadata('/rsvp/check', { noIndex: true })
-import { Main } from '@/components/main'
 
 export default async function RsvpPage({
     searchParams,

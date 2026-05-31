@@ -4,6 +4,13 @@
 :root {
     --background: var(--color-cream);
     --foreground: var(--color-brown-dark);
+    --wavy-overlap: 100px;
+}
+
+@media screen and (min-width: 768px) {
+    :root {
+        --wavy-overlap: 200px;
+    }
 }
 
 @theme inline {
@@ -53,7 +60,7 @@ body {
     }
 }
 
-#schedule {
+.section-wavy-top {
     --mask:
         radial-gradient(111.8px at 50% 150px, #000 99%, #0000 101%) calc(50% - 100px) 0/200px 100%,
         radial-gradient(111.8px at 50% -100px, #0000 99%, #000 101%) 50% 50px/200px 100% repeat-x;
@@ -62,7 +69,32 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-    #schedule {
+    .section-wavy-top {
+        --mask:
+            radial-gradient(223.61px at 50% 300px, #000 99%, #0000 101%) calc(50% - 200px) 0 / 400px
+                100%,
+            radial-gradient(223.61px at 50% -200px, #0000 99%, #000 101%) 50% 100px / 400px 100%
+                repeat-x;
+    }
+}
+
+.section-wavy-top-cream {
+    position: relative;
+    z-index: 1;
+    margin-top: calc(-1 * var(--wavy-overlap));
+    --mask:
+        radial-gradient(111.8px at 50% 150px, #000 99%, #0000 101%) calc(50% - 100px) 0/200px 100%,
+        radial-gradient(111.8px at 50% -100px, #0000 99%, #000 101%) 50% 50px/200px 100% repeat-x;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
+}
+
+.pb-wavy-offset {
+    padding-bottom: calc(var(--wavy-overlap) + 2.5rem);
+}
+
+@media screen and (min-width: 768px) {
+    .section-wavy-top-cream {
         --mask:
             radial-gradient(223.61px at 50% 300px, #000 99%, #0000 101%) calc(50% - 200px) 0 / 400px
                 100%,

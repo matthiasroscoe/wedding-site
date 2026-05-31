@@ -1,14 +1,9 @@
-import type { Metadata } from 'next'
 import { MapPin } from 'lucide-react'
-import { Nav } from '@/components/nav'
-import { subpageMetadata } from '@/lib/site-metadata'
-import { Heading2, Paragraph } from '@/components/ui/typography'
-import { Main } from '@/components/main'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Heading2, Paragraph } from '@/components/ui/typography'
+import { VENUE_MAPS_EMBED_URL, VENUE_MAPS_URL } from '@/lib/constants'
 import { cn } from '@/lib/utils'
-
-export const metadata: Metadata = subpageMetadata('/travel')
 
 const villaOptions = [
     {
@@ -82,7 +77,7 @@ function AccommodationOption({
                     {name}
                 </h3>
                 {sleeps && (
-                    <span className="text-brown-dark/60 font-body text-sm whitespace-nowrap">
+                    <span className="text-brown-dark/80 font-body text-base whitespace-nowrap">
                         Sleeps {sleeps}
                     </span>
                 )}
@@ -100,11 +95,10 @@ function AccommodationOption({
     )
 }
 
-export default function Home() {
+export function TravelAccommodation() {
     return (
-        <Main className="bg-cream min-h-screen pb-16">
-            <Nav />
-            <div className="mx-auto max-w-xl px-8 pt-12 md:pt-16">
+        <section id="travel" className="section-wavy-top-cream bg-cream text-brown-dark">
+            <div className="container mx-auto max-w-xl px-8 pt-[140px] pb-16 md:pt-[240px] md:pb-24">
                 <section className="mb-16">
                     <Heading2 className="mb-10">getting there</Heading2>
                     <Paragraph className="text-brown-dark mb-4">
@@ -121,17 +115,23 @@ export default function Home() {
                     </Paragraph>
                     <Paragraph className="text-brown-dark flex items-center gap-1.5">
                         <MapPin className="h-4 w-4" />
-                        <Link
-                            href="https://maps.app.goo.gl/YPwtTxy8XPu2zndMA"
-                            target="_blank"
-                            className="underline"
-                        >
+                        <Link href={VENUE_MAPS_URL} target="_blank" className="underline">
                             View the venue on Google Maps
                         </Link>
                     </Paragraph>
+                    <div className="border-brown-dark/20 mt-8 aspect-[4/3] w-full overflow-hidden rounded-lg border md:-mx-[calc(100%/6)] md:w-[calc(100%*4/3)]">
+                        <iframe
+                            src={VENUE_MAPS_EMBED_URL}
+                            title="Can Ramonet on Google Maps"
+                            className="h-full w-full border-0"
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            allowFullScreen
+                        />
+                    </div>
                 </section>
 
-                <section id="accommodation" className="mb-16">
+                <section className="mb-16">
                     <Heading2 className="mb-8">the area</Heading2>
                     <Paragraph className="text-brown-dark mb-4">
                         Sitges is a beautiful seaside town just south of Barcelona, known for
@@ -160,13 +160,17 @@ export default function Home() {
                     ))}
                 </div>
 
-                <div className="mb-8 grid grid-cols-1 gap-4">
+                <div className="grid grid-cols-1 gap-4">
                     <Heading2 className="mb-8">villas</Heading2>
+                    <Paragraph className="text-brown-dark mb-8">
+                        There&apos;s also lots of lovely villas close to the venue. Here&apos;s some
+                        options but check on Airbnb as they may book up quickly.
+                    </Paragraph>
                     {villaOptions.map((option, idx) => (
                         <AccommodationOption key={idx} {...option} isFirst={idx === 0} />
                     ))}
                 </div>
             </div>
-        </Main>
+        </section>
     )
 }

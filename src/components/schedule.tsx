@@ -1,6 +1,6 @@
 import { ImageSlider } from '@/components/image-slider'
 import { ScheduleArrow, ScheduleArrowHeadDef } from '@/components/schedule-arrows'
-import { Heading2 } from './ui/typography'
+import { Heading1 } from './ui/typography'
 
 const LG_COL_START = [
     'lg:col-start-1',
@@ -22,10 +22,10 @@ const weddingDayItems = [
 
 export function Schedule() {
     return (
-        <section id="schedule" className="text-brown-dark bg-[#e1cf73]">
-            <div className="container mx-auto px-8 pt-[140px] pb-14 md:pt-[240px] md:pb-24">
+        <section id="schedule" className="section-wavy-top text-brown-dark bg-yellow">
+            <div className="pb-wavy-offset container mx-auto px-8 pt-[140px] md:pt-[240px]">
                 <div className="mb-24 md:mb-32">
-                    <Heading2 className="mb-14 text-center lg:mb-8">Wedding Day</Heading2>
+                    <Heading1 className="mb-14 text-center lg:mb-8">the wedding day</Heading1>
 
                     <div className="relative grid grid-cols-1 gap-14 text-center md:grid-cols-3 lg:grid-cols-6 lg:grid-rows-2 lg:gap-x-4 lg:gap-y-12 xl:gap-x-6">
                         <ScheduleArrowHeadDef />
@@ -51,7 +51,7 @@ export function Schedule() {
                 </div>
 
                 <div className="mb-24">
-                    <Heading2 className="mb-14 text-center lg:mb-8">The Day After</Heading2>
+                    <Heading1 className="mb-14 text-center lg:mb-8">the day after</Heading1>
 
                     <div className="flex flex-col items-center">
                         <p className="font-handwriting text-3xl leading-8 font-bold">2pm</p>

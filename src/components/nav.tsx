@@ -13,9 +13,9 @@ export const navLinks = [
     { label: 'home', href: '/' },
     { label: 'our story', href: '/our-story' },
     { label: 'schedule', href: '/#schedule' },
-    { label: 'travel & accommodation', href: '/travel' },
-    { label: 'dress code', href: '/dress-code' },
-    { label: 'rsvp', href: '/rsvp' },
+    { label: 'travel & accommodation', href: '/#travel' },
+    { label: 'dress code', href: '/#dress-code' },
+    { label: 'rsvp', href: '/#rsvp' },
     { label: 'faqs', href: '/#faqs' },
 ]
 

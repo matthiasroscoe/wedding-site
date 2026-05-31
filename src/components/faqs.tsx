@@ -7,6 +7,7 @@ import {
 import { cn } from '@/lib/utils'
 import { Heading2 } from './ui/typography'
 import Link from 'next/link'
+import { VENUE_MAPS_URL } from '@/lib/constants'
 
 const faqs = [
     {
@@ -17,12 +18,12 @@ const faqs = [
         question: 'Where is the venue?',
         answer: (
             <>
-                See the travel + accommodation page for more information or{' '}
-                <Link
-                    href="https://maps.app.goo.gl/YPwtTxy8XPu2zndMA"
-                    target="_blank"
-                    className="underline"
-                >
+                See the{' '}
+                <Link href="/#travel" className="underline">
+                    travel &amp; accommodation
+                </Link>{' '}
+                section for more information or{' '}
+                <Link href={VENUE_MAPS_URL} target="_blank" className="underline">
                     view the venue on Google Maps
                 </Link>
             </>
@@ -30,7 +31,7 @@ const faqs = [
     },
     {
         question: 'Is there parking at the venue?',
-        answer: 'There is plenty of parking at entrance to Can Ramonet.',
+        answer: 'There is plenty of parking at the entrance to Can Ramonet.',
     },
     {
         question: 'Will transportation be provided?',
@@ -48,9 +49,9 @@ const faqs = [
 
 export function Faqs({ className }: { className?: string }) {
     return (
-        <section id="faqs" className={cn('bg-yellow text-brown-dark', className)}>
-            <div className="font-body container mx-auto px-8 pt-2 pb-24">
-                <Heading2 className="mb-8 text-center">Faqs</Heading2>
+        <section id="faqs" className={cn('section-wavy-top bg-yellow text-brown-dark', className)}>
+            <div className="font-body container mx-auto px-8 pt-[140px] pb-24 md:pt-[240px]">
+                <Heading2 className="mb-8 text-center">faqs</Heading2>
 
                 <div className="mx-auto mt-8 max-w-[700px] text-lg">
                     <Accordion type="multiple">
