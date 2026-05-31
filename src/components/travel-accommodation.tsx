@@ -163,8 +163,8 @@ export function TravelAccommodation() {
                 <div className="grid grid-cols-1 gap-4">
                     <Heading2 className="mb-8">villas</Heading2>
                     <Paragraph className="text-brown-dark mb-8">
-                        There&apos;s also lots of lovely villas close to the venue. Here&apos;s some
-                        options but check on Airbnb as they may book up quickly.
+                        There’s also some lovely villas close to the venue but check on Airbnb as
+                        they may book up quickly.
                     </Paragraph>
                     {villaOptions.map((option, idx) => (
                         <AccommodationOption key={idx} {...option} isFirst={idx === 0} />

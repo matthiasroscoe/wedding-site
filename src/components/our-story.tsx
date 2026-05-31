@@ -1,8 +1,5 @@
 'use client'
 
-import { Nav } from '@/components/nav'
-import { Main } from '@/components/main'
-import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
@@ -81,7 +78,6 @@ const polaroids = [
     },
     {
         year: 2024,
-
         caption: "Glasto '24 at our fave band Bombay Bicycle Club",
         src: '/about-us/Glasto.jpg',
         xPercent: 8,
@@ -92,7 +88,6 @@ const polaroids = [
     },
     {
         year: 2024,
-
         caption: 'Making it to the top of the Thorang La Pass in Nepal',
         src: '/about-us/Nepal.jpg',
         xPercent: 50,
@@ -123,7 +118,7 @@ const polaroids = [
     },
 ]
 
-export function OurStoryContent() {
+export function OurStory() {
     const sectionRefs = useRef<(HTMLElement | null)[]>([])
     const polaroidRefs = useRef<(HTMLDivElement | null)[]>([])
 
@@ -167,17 +162,13 @@ export function OurStoryContent() {
     }, [])
 
     return (
-        <Main className="bg-cream overflow-x-hidden">
-            <Nav />
-
-            {/* Page title */}
-            <section className="flex h-[40vh] items-center justify-center md:h-[30vh]">
-                <h1 className="font-handwriting text-brown-dark text-center text-[48px] leading-tight md:text-[64px]">
+        <section id="our-story" className="bg-cream text-brown-dark overflow-x-hidden">
+            {/* <div className="flex items-center justify-center px-8 py-16 md:py-20">
+                <h2 className="font-handwriting text-center text-[48px] leading-tight md:text-[64px]">
                     Proof we know each other
-                </h1>
-            </section>
+                </h2>
+            </div> */}
 
-            {/* ── Desktop: scattered parallax polaroids ─────────────────── */}
             <div className="hidden md:block">
                 {polaroids.map((p, i) => (
                     <section
@@ -209,8 +200,7 @@ export function OurStoryContent() {
                 ))}
             </div>
 
-            {/* ── Mobile: centred stacked polaroids ─────────────────────── */}
-            <div className="flex flex-col items-center gap-14 px-6 pb-20 md:hidden">
+            <div className="flex flex-col items-center gap-14 px-6 pb-16 md:hidden">
                 {polaroids.map((p) => (
                     <div key={p.src} style={{ transform: `rotate(${p.rotation * 0.4}deg)` }}>
                         <PolaroidCard
@@ -224,8 +214,8 @@ export function OurStoryContent() {
                 ))}
             </div>
 
-            <div className="hidden h-[20vh] md:block" />
-        </Main>
+            <div className="hidden h-[10vh] md:block" />
+        </section>
     )
 }
 
@@ -242,7 +232,6 @@ function PolaroidCard({
     orientation: 'portrait' | 'landscape'
     mobile?: boolean
 }) {
-    // Portrait ~3:4  (1125×1476)  Landscape ~4:3  (1125×834)
     let width: number, imageHeight: number
     if (mobile) {
         width = orientation === 'landscape' ? 280 : 280
