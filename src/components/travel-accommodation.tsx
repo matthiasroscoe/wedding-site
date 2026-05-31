@@ -152,7 +152,7 @@ export function TravelAccommodation() {
                 <div className="mb-16 grid grid-cols-1 gap-4">
                     <Heading2 className="mb-4">hotels in Sitges</Heading2>
                     <Paragraph className="text-brown-dark mb-8">
-                        There&apos;s lots of hotels in Sitges to choose from - here&apos;s a few
+                        There are lots of hotels in Sitges to choose from - here are a few
                         we&apos;ve found:
                     </Paragraph>
                     {hotelOptions.map((option, idx) => (
@@ -163,7 +163,7 @@ export function TravelAccommodation() {
                 <div className="grid grid-cols-1 gap-4">
                     <Heading2 className="mb-8">villas</Heading2>
                     <Paragraph className="text-brown-dark mb-8">
-                        There’s also some lovely villas close to the venue but check on Airbnb as
+                        There are also some lovely villas close to the venue but check on Airbnb as
                         they may book up quickly.
                     </Paragraph>
                     {villaOptions.map((option, idx) => (

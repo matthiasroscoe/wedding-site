@@ -68,12 +68,12 @@ export function Hero() {
     return (
         <section
             id="hero"
-            className="text-brown-dark flex min-h-screen flex-col pt-[82px] lg:pt-[76px]"
+            className="text-brown-dark flex min-h-screen flex-col pt-[82px] pb-wavy-offset lg:pt-[76px]"
         >
             <div className="container mx-auto flex min-h-0 flex-1 flex-col justify-center">
                 <Nav />
 
-                <div className="flex flex-col items-center pb-32 md:pb-20">
+                <div className="flex flex-col items-center pb-16 md:pb-12">
                     <div className="relative h-[267px] w-[311px] md:h-[445px] md:w-[518px] xl:h-[593px] xl:w-[691px]">
                         <div className="absolute top-0 left-0 h-[445px] w-[518px] origin-top-left scale-[0.6] md:scale-100 xl:scale-[1.333]">
                             {polaroids.map(({ src }, i) => (

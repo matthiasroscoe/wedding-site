@@ -5,10 +5,9 @@ import { Heading2 } from './ui/typography'
 
 export function MainDetails() {
     return (
-        <section className="bg-cream text-brown-dark relative">
+        <section className="section-wavy-top-cream bg-cream text-brown-dark relative">
             <div className="container mx-auto flex flex-col md:flex-row">
-                {/* Left: sage-green content panel */}
-                <div className="mx-auto flex flex-col items-center px-8 pt-16 pb-6 text-center md:pt-[85px] md:pb-8 lg:px-[80px] xl:px-[110px]">
+                <div className="mx-auto flex flex-col items-center px-8 pt-[140px] pb-6 text-center md:pt-[240px] md:pb-8 lg:px-[80px] xl:px-[110px]">
                     <Heading2>details</Heading2>
 
                     <div className="font-body mt-8 max-w-[419px] text-[18px] leading-[28px] font-medium">
