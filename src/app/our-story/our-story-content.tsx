@@ -1,6 +1,9 @@
 'use client'
 
-import Image from 'next/image'
+import { Nav } from '@/components/nav'
+import { Main } from '@/components/main'
+import { Button } from '@/components/ui/button'
+import { PolaroidCard } from '@/components/polaroid-card'
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -78,6 +81,7 @@ const polaroids = [
     },
     {
         year: 2024,
+
         caption: "Glasto '24 at our fave band Bombay Bicycle Club",
         src: '/about-us/Glasto.jpg',
         xPercent: 8,
@@ -88,6 +92,7 @@ const polaroids = [
     },
     {
         year: 2024,
+
         caption: 'Making it to the top of the Thorang La Pass in Nepal',
         src: '/about-us/Nepal.jpg',
         xPercent: 50,
@@ -118,7 +123,7 @@ const polaroids = [
     },
 ]
 
-export function OurStory() {
+export function OurStoryContent() {
     const sectionRefs = useRef<(HTMLElement | null)[]>([])
     const polaroidRefs = useRef<(HTMLDivElement | null)[]>([])
 
@@ -162,13 +167,17 @@ export function OurStory() {
     }, [])
 
     return (
-        <section id="our-story" className="bg-cream text-brown-dark overflow-x-hidden">
-            {/* <div className="flex items-center justify-center px-8 py-16 md:py-20">
-                <h2 className="font-handwriting text-center text-[48px] leading-tight md:text-[64px]">
-                    Proof we know each other
-                </h2>
-            </div> */}
+        <Main className="bg-cream overflow-x-hidden">
+            <Nav />
 
+            {/* Page title */}
+            <section className="flex h-[40vh] items-center justify-center md:h-[30vh]">
+                <h1 className="font-handwriting text-brown-dark text-center text-[48px] leading-tight md:text-[64px]">
+                    Proof we know each other
+                </h1>
+            </section>
+
+            {/* ── Desktop: scattered parallax polaroids ─────────────────── */}
             <div className="hidden md:block">
                 {polaroids.map((p, i) => (
                     <section
@@ -200,7 +209,8 @@ export function OurStory() {
                 ))}
             </div>
 
-            <div className="flex flex-col items-center gap-14 px-6 pb-16 md:hidden">
+            {/* ── Mobile: centred stacked polaroids ─────────────────────── */}
+            <div className="flex flex-col items-center gap-14 px-6 pb-20 md:hidden">
                 {polaroids.map((p) => (
                     <div key={p.src} style={{ transform: `rotate(${p.rotation * 0.4}deg)` }}>
                         <PolaroidCard
@@ -214,56 +224,7 @@ export function OurStory() {
                 ))}
             </div>
 
-            <div className="hidden h-[10vh] md:block" />
-        </section>
-    )
-}
-
-function PolaroidCard({
-    year,
-    caption,
-    src,
-    orientation,
-    mobile,
-}: {
-    year: number
-    caption: string
-    src: string
-    orientation: 'portrait' | 'landscape'
-    mobile?: boolean
-}) {
-    let width: number, imageHeight: number
-    if (mobile) {
-        width = orientation === 'landscape' ? 280 : 280
-        imageHeight = orientation === 'landscape' ? 208 : 280
-    } else {
-        width = orientation === 'landscape' ? 460 : 350
-        imageHeight = orientation === 'landscape' ? 342 : 407
-    }
-
-    return (
-        <div
-            className="bg-white shadow-xl"
-            style={{
-                width: `${width}px`,
-                padding: '12px 12px 20px 12px',
-                borderRadius: '2px',
-            }}
-        >
-            <div
-                className="relative overflow-hidden"
-                style={{ height: `${imageHeight}px`, width: '100%' }}
-            >
-                <Image src={src} alt={String(year)} fill className="object-cover" />
-            </div>
-            <div className="mt-5 px-1">
-                <p className="font-handwriting text-brown-dark text-[18px] leading-none">{year}</p>
-                {caption && (
-                    <p className="font-handwriting text-brown-dark/60 mt-1 text-lg leading-snug">
-                        {caption}
-                    </p>
-                )}
-            </div>
-        </div>
+            <div className="hidden h-[20vh] md:block" />
+        </Main>
     )
 }
