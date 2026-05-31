@@ -168,7 +168,7 @@ export default function OurStoryPage() {
             <Nav />
 
             {/* Page title */}
-            <section className="flex h-[40vh] items-center justify-center md:h-[30vh]">
+            <section className="flex h-[40vh] items-center justify-center md:h-[50vh]">
                 <h1 className="font-handwriting text-brown-dark text-[48px] leading-tight md:text-[64px]">
                     Our Story
                 </h1>
