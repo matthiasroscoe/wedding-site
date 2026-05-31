@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { Menu, Pause, Play } from 'lucide-react'
-import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
+import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import { useAudio } from '@/lib/audio-context'
 import { SHOW_MOBILE_HEADER_AUDIO } from '@/components/audio-player'
 import { usePathname } from 'next/navigation'
@@ -77,13 +77,14 @@ export function Nav() {
                         <SheetTitle className="sr-only">Navigation</SheetTitle>
                         <nav className="mt-12 flex flex-col gap-5">
                             {navLinks.map(({ label, href }) => (
-                                <Link
-                                    key={label}
-                                    href={href}
-                                    className="font-handwriting text-[24px] leading-6 transition-opacity hover:opacity-70"
-                                >
-                                    {label}
-                                </Link>
+                                <SheetClose key={label} asChild>
+                                    <Link
+                                        href={href}
+                                        className="font-handwriting text-[24px] leading-6 transition-opacity hover:opacity-70"
+                                    >
+                                        {label}
+                                    </Link>
+                                </SheetClose>
                             ))}
                         </nav>
                     </SheetContent>
