@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Menu, Pause, Play } from 'lucide-react'
+import { Menu, Pause, Play, SkipForward } from 'lucide-react'
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import { useAudio } from '@/lib/audio-context'
 import { usePathname } from 'next/navigation'
@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils'
 
 export const navLinks = [
     { label: 'home', href: '/' },
+    { label: 'our story', href: '/our-story' },
     { label: 'schedule', href: '/#schedule' },
     { label: 'travel & accommodation', href: '/travel' },
     { label: 'dress code', href: '/dress-code' },
@@ -18,7 +19,7 @@ export const navLinks = [
 ]
 
 export function Nav() {
-    const { isPlaying, toggle, track } = useAudio()
+    const { isPlaying, toggle, nextTrack, track } = useAudio()
     const pathname = usePathname()
     const isHome = pathname === '/'
     const [pastHero, setPastHero] = useState(false)
@@ -103,6 +104,13 @@ export function Nav() {
                     ) : (
                         <Play className="h-3 w-3 translate-x-px" />
                     )}
+                </button>
+                <button
+                    onClick={nextTrack}
+                    aria-label="Next track"
+                    className="bg-brown text-cream hover:bg-brown-dark flex h-7 w-7 shrink-0 cursor-pointer items-center justify-center rounded-full transition-colors"
+                >
+                    <SkipForward className="h-3 w-3" />
                 </button>
             </div>
         </header>

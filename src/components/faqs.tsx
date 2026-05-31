@@ -6,6 +6,7 @@ import {
 } from '@/components/ui/accordion'
 import { cn } from '@/lib/utils'
 import { Heading2 } from './ui/typography'
+import Link from 'next/link'
 
 const faqs = [
     {
@@ -27,6 +28,21 @@ const faqs = [
     {
         question: 'Is it okay to take pictures with our phones and cameras during the wedding?',
         answer: 'Yes! We would love for you to take photos after the ceremony. However, please refrain from taking pictures during the ceremony.',
+    },
+    {
+        question: 'Where is the venue?',
+        answer: (
+            <>
+                See the travel + accommodation page for more information or{' '}
+                <Link
+                    href="https://maps.app.goo.gl/YPwtTxy8XPu2zndMA"
+                    target="_blank"
+                    className="underline"
+                >
+                    view the venue on Google Maps
+                </Link>
+            </>
+        ),
     },
 ]
 

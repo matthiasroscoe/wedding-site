@@ -1,12 +1,23 @@
 import { ImageSlider } from '@/components/image-slider'
+import { ScheduleArrow, ScheduleArrowHeadDef } from '@/components/schedule-arrows'
 import { Heading2 } from './ui/typography'
 
+const LG_COL_START = [
+    'lg:col-start-1',
+    'lg:col-start-2',
+    'lg:col-start-3',
+    'lg:col-start-4',
+    'lg:col-start-5',
+    'lg:col-start-6',
+] as const
+
 const weddingDayItems = [
-    { time: '3pm', name: 'Ceremony', colClass: 'md:[grid-column:1/3]' },
-    { time: '4pm', name: 'Aperitivo & Music', colClass: 'md:[grid-column:3/5]' },
-    { time: '6pm', name: 'Dinner & Speeches', colClass: 'md:[grid-column:5/7]' },
-    { time: '9pm', name: 'Band & Boogie', colClass: 'md:row-start-2 md:[grid-column:2/4]' },
-    { time: '12:30am', name: 'Carriages', colClass: 'md:row-start-2 md:[grid-column:4/6]' },
+    { time: '2pm', name: 'Arrival & Welcome Drink' },
+    { time: '3pm', name: 'Ceremony' },
+    { time: '4pm', name: 'Aperitivo & Music' },
+    { time: '6pm', name: 'Dinner & Speeches' },
+    { time: '9pm', name: 'Band & Boogie' },
+    { time: '12:30am', name: 'Taxis & Bus' },
 ]
 
 export function Schedule() {
@@ -16,9 +27,18 @@ export function Schedule() {
                 <div className="mb-24 md:mb-32">
                     <Heading2 className="mb-8 text-center">Wedding Day</Heading2>
 
-                    <div className="grid grid-cols-1 gap-8 text-center md:grid-cols-6 md:gap-y-14">
-                        {weddingDayItems.map((item) => (
-                            <div key={item.name} className={item.colClass}>
+                    <div className="relative grid grid-cols-1 gap-8 text-center md:grid-cols-3 md:gap-y-14 lg:grid-cols-6 lg:grid-rows-2 lg:gap-x-4 lg:gap-y-12 xl:gap-x-6">
+                        <ScheduleArrowHeadDef />
+
+                        {weddingDayItems.slice(0, -1).map((_, i) => (
+                            <ScheduleArrow key={`arrow-${i}`} index={i} fromTop={i % 2 === 0} />
+                        ))}
+
+                        {weddingDayItems.map((item, i) => (
+                            <div
+                                key={item.name}
+                                className={`relative z-10 ${LG_COL_START[i]} ${i % 2 === 0 ? 'lg:row-start-1 lg:self-start' : 'lg:row-start-2 lg:self-end'}`}
+                            >
                                 <p className="font-handwriting text-3xl leading-8">{item.time}</p>
                                 <p className="font-handwriting mt-2 text-3xl leading-8">
                                     {item.name}

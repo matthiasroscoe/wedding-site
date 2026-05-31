@@ -1,7 +1,7 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { CONTACT_EMAIL } from '@/lib/constants'
+import { CONTACT_EMAIL, CONTACT_PHONE } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 
 export function Footer() {
@@ -26,15 +26,9 @@ export function Footer() {
 
                     {/* Contact */}
                     <div className="flex flex-col gap-1">
-                        <span className="font-body text-brown-dark/70 text-xs font-medium tracking-widest uppercase">
-                            Email us with any questions
+                        <span className="font-body text-brown-dark/70 text-base font-medium md:text-right">
+                            Whatsapp us with any questions: {CONTACT_PHONE}
                         </span>
-                        <a
-                            href={`mailto:${CONTACT_EMAIL}`}
-                            className="font-body text-brown-dark text-sm underline underline-offset-2 transition-opacity hover:opacity-70"
-                        >
-                            {CONTACT_EMAIL}
-                        </a>
                     </div>
                 </div>
             </div>

@@ -49,7 +49,7 @@ export function MainDetails() {
                                 {CONTACT_EMAIL}
                             </a>
                         </p>
-                        <p>Phone: {CONTACT_PHONE}</p>
+                        <p>Whatsapp: {CONTACT_PHONE}</p>
                     </div>
                 </div>
             </div>

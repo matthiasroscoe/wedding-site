@@ -1,3 +1,4 @@
+import { MapPin } from 'lucide-react'
 import { Nav } from '@/components/nav'
 import { Heading2, Paragraph } from '@/components/ui/typography'
 import { Main } from '@/components/main'
@@ -111,8 +112,18 @@ export default function Home() {
                         On the wedding day we&apos;ll organise transport between Sitges and the
                         venue (15min drive) for anyone staying there.
                     </Paragraph>
-                    <Paragraph className="text-brown-dark">
+                    <Paragraph className="text-brown-dark mb-4">
                         We recommend booking flights and accommodation as early as possible!
+                    </Paragraph>
+                    <Paragraph className="text-brown-dark flex items-center gap-1.5">
+                        <MapPin className="h-4 w-4" />
+                        <Link
+                            href="https://maps.app.goo.gl/YPwtTxy8XPu2zndMA"
+                            target="_blank"
+                            className="underline"
+                        >
+                            View the venue on Google Maps
+                        </Link>
                     </Paragraph>
                 </section>
 
