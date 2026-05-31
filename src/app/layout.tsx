@@ -1,5 +1,5 @@
-import type { Metadata } from 'next'
 import { Cedarville_Cursive, Goudy_Bookletter_1911 } from 'next/font/google'
+import { baseMetadata } from '@/lib/site-metadata'
 import { Providers } from './providers'
 import { AudioPlayer } from '@/components/audio-player'
 import { Footer } from '@/components/footer'
@@ -16,10 +16,7 @@ const goudyBookletter1911 = Goudy_Bookletter_1911({
     variable: '--font-goudy-bookletter-1911',
 })
 
-export const metadata: Metadata = {
-    title: 'Our Wedding',
-    description: 'Wedding website',
-}
+export const metadata = baseMetadata
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (

@@ -1,5 +1,9 @@
+import type { Metadata } from 'next'
 import { Nav } from '@/components/nav'
 import { Heading2, Paragraph } from '@/components/ui/typography'
+import { subpageMetadata } from '@/lib/site-metadata'
+
+export const metadata: Metadata = subpageMetadata('/dress-code')
 import { Main } from '@/components/main'
 import Link from 'next/link'
 import { palette } from '@/lib/palette'

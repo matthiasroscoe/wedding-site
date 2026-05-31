@@ -1,5 +1,9 @@
+import type { Metadata } from 'next'
 import { Nav } from '@/components/nav'
 import { RsvpForm } from '@/components/rsvp-form'
+import { subpageMetadata } from '@/lib/site-metadata'
+
+export const metadata: Metadata = subpageMetadata('/rsvp')
 import { Main } from '@/components/main'
 
 export default function RsvpPage() {

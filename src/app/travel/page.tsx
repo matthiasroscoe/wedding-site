@@ -1,10 +1,14 @@
+import type { Metadata } from 'next'
 import { MapPin } from 'lucide-react'
 import { Nav } from '@/components/nav'
+import { subpageMetadata } from '@/lib/site-metadata'
 import { Heading2, Paragraph } from '@/components/ui/typography'
 import { Main } from '@/components/main'
 import Image from 'next/image'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
+
+export const metadata: Metadata = subpageMetadata('/travel')
 
 const villaOptions = [
     {
