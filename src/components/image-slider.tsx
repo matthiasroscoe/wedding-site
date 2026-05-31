@@ -7,9 +7,10 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const slides = [
     { src: '/venue-2.jpg', alt: 'Can Ramonet, Catalonia' },
+    { src: '/venue-4.jpg', alt: 'Can Ramonet, Catalonia' },
     { src: '/venue-3.jpg', alt: 'Can Ramonet, Catalonia' },
-    { src: '/venue-5.jpg', alt: 'Can Ramonet, Catalonia' },
     { src: '/venue-6.png', alt: 'Can Ramonet, Catalonia' },
+    { src: '/venue-5.jpg', alt: 'Can Ramonet, Catalonia' },
 ]
 
 export function ImageSlider() {
@@ -44,7 +45,7 @@ export function ImageSlider() {
                         <ChevronLeft className="h-9 w-9" />
                     </button>
 
-                    <div className="relative min-w-0 flex-1 aspect-5/3 overflow-hidden">
+                    <div className="relative aspect-5/3 min-w-0 flex-1 overflow-hidden">
                         <div ref={emblaRef} className="h-full overflow-hidden">
                             <div className="flex h-full">
                                 {slides.map((slide) => (

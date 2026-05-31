@@ -40,7 +40,7 @@ const polaroids = [
     },
     {
         year: 2021,
-        caption: 'Spruced ourselves up for our beautiful friends wedding',
+        caption: "Spruced ourselves up for Annie & James' wedding",
         src: '/about-us/A&J_s Wedding.jpg',
         xPercent: 56,
         yOffsetVh: 10,
@@ -50,7 +50,7 @@ const polaroids = [
     },
     {
         year: 2022,
-        caption: 'Two week road trip around Morroco',
+        caption: 'In the Sahara in Morocco on a two week road trip',
         src: '/about-us/Morrocco.jpg',
         xPercent: 8,
         yOffsetVh: 7,
@@ -70,7 +70,7 @@ const polaroids = [
     },
     {
         year: 2024,
-        caption: 'Made it to the top of the Annapurna Circuit - our favourite part of travelling! ',
+        caption: 'Making it to the top of the Thorang La Pass in Nepal',
         src: '/about-us/Nepal.jpg',
         xPercent: 56,
         yOffsetVh: 5,
@@ -80,7 +80,7 @@ const polaroids = [
     },
     {
         year: 2024,
-        caption: '',
+        caption: 'A long weekend in Rome to consume all the wine and pasta!',
         src: '/about-us/Rome.jpg',
         xPercent: 8,
         yOffsetVh: 8,
@@ -90,7 +90,7 @@ const polaroids = [
     },
     {
         year: 2024,
-        caption: "Glasto '24 at our fave band Bombay Bicycle Club with the best crew",
+        caption: "Glasto '24 at our fave band Bombay Bicycle Club",
         src: '/about-us/Glasto.jpg',
         xPercent: 50,
         yOffsetVh: 11,
@@ -110,7 +110,7 @@ const polaroids = [
     },
     {
         year: 2025,
-        caption: "Celebrating the Hale's and bringing the new year in with our family",
+        caption: "Celebrating the Hale's and bringing in the new year",
         src: '/about-us/G&T_s Wedding.jpg',
         xPercent: 56,
         yOffsetVh: 9,
@@ -168,7 +168,7 @@ export default function OurStoryPage() {
             <Nav />
 
             {/* Page title */}
-            <section className="flex h-[40vh] items-center justify-center md:h-[50vh]">
+            <section className="flex h-[40vh] items-center justify-center md:h-[30vh]">
                 <h1 className="font-handwriting text-brown-dark text-[48px] leading-tight md:text-[64px]">
                     Our Story
                 </h1>
