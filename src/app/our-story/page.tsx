@@ -72,6 +72,17 @@ const polaroids = [
         year: 2024,
         caption: 'A long weekend in Rome to consume all the wine and pasta!',
         src: '/about-us/Rome.jpg',
+        xPercent: 56,
+        yOffsetVh: 5,
+        rotation: -11,
+        parallax: -42,
+        orientation: 'portrait' as const,
+    },
+    {
+        year: 2024,
+
+        caption: "Glasto '24 at our fave band Bombay Bicycle Club",
+        src: '/about-us/Glasto.jpg',
         xPercent: 8,
         yOffsetVh: 8,
         rotation: -7,
@@ -80,22 +91,13 @@ const polaroids = [
     },
     {
         year: 2024,
-        caption: "Glasto '24 at our fave band Bombay Bicycle Club",
-        src: '/about-us/Glasto.jpg',
+
+        caption: 'Making it to the top of the Thorang La Pass in Nepal',
+        src: '/about-us/Nepal.jpg',
         xPercent: 50,
         yOffsetVh: 11,
         rotation: 9,
         parallax: -18,
-        orientation: 'portrait' as const,
-    },
-    {
-        year: 2024,
-        caption: 'Making it to the top of the Thorang La Pass in Nepal',
-        src: '/about-us/Nepal.jpg',
-        xPercent: 56,
-        yOffsetVh: 5,
-        rotation: -11,
-        parallax: -42,
         orientation: 'portrait' as const,
     },
     {
@@ -168,9 +170,9 @@ export default function OurStoryPage() {
             <Nav />
 
             {/* Page title */}
-            <section className="flex h-[40vh] items-center justify-center md:h-[50vh]">
-                <h1 className="font-handwriting text-brown-dark text-[48px] leading-tight md:text-[64px]">
-                    Our Story
+            <section className="flex h-[40vh] items-center justify-center md:h-[30vh]">
+                <h1 className="font-handwriting text-brown-dark text-center text-[48px] leading-tight md:text-[64px]">
+                    Proof we know each other
                 </h1>
             </section>
 
@@ -242,8 +244,8 @@ function PolaroidCard({
     // Portrait ~3:4  (1125×1476)  Landscape ~4:3  (1125×834)
     let width: number, imageHeight: number
     if (mobile) {
-        width = orientation === 'landscape' ? 280 : 210
-        imageHeight = orientation === 'landscape' ? 208 : 276
+        width = orientation === 'landscape' ? 280 : 280
+        imageHeight = orientation === 'landscape' ? 208 : 280
     } else {
         width = orientation === 'landscape' ? 460 : 350
         imageHeight = orientation === 'landscape' ? 342 : 407

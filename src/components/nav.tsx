@@ -44,12 +44,12 @@ export function Nav() {
     return (
         <header
             className={cn(
-                'text-brown-dark fixed top-0 right-0 left-0 z-50 flex items-center justify-between p-4 py-2 transition-colors duration-300 md:justify-center md:py-5',
-                solidBg ? 'bg-cream' : 'bg-transparent'
+                'text-brown-dark border-brown/30 fixed top-0 right-0 left-0 z-50 flex items-center justify-between p-4 py-2 transition-colors duration-300 lg:justify-center lg:py-5',
+                solidBg ? 'bg-cream border-brown/30 border-b lg:border-none' : 'bg-transparent'
             )}
         >
             {/* Desktop */}
-            <nav className="hidden items-center gap-[45px] md:flex">
+            <nav className="hidden items-center gap-[45px] lg:flex">
                 {navLinks.map(({ label, href }) => (
                     <Link
                         key={label}
@@ -62,7 +62,7 @@ export function Nav() {
             </nav>
 
             {/* Mobile */}
-            <div className="flex items-center gap-3 md:hidden">
+            <div className="flex items-center gap-3 lg:hidden">
                 <Sheet>
                     <SheetTrigger asChild>
                         <button
@@ -91,22 +91,24 @@ export function Nav() {
             </div>
 
             {/* Mobile audio controls */}
-            {SHOW_MOBILE_HEADER_AUDIO && <div className="flex items-center gap-2 md:hidden">
-                <span className="font-body max-w-[120px] truncate text-xs font-medium">
-                    {track.title}
-                </span>
-                <button
-                    onClick={toggle}
-                    aria-label={isPlaying ? 'Pause' : 'Play'}
-                    className="bg-brown text-cream hover:bg-brown-dark flex h-7 w-7 shrink-0 cursor-pointer items-center justify-center rounded-full transition-colors"
-                >
-                    {isPlaying ? (
-                        <Pause className="h-3 w-3" />
-                    ) : (
-                        <Play className="h-3 w-3 translate-x-px" />
-                    )}
-                </button>
-            </div>}
+            {SHOW_MOBILE_HEADER_AUDIO && (
+                <div className="flex items-center gap-2 lg:hidden">
+                    <span className="font-body max-w-[120px] truncate text-xs font-medium">
+                        {track.title}
+                    </span>
+                    <button
+                        onClick={toggle}
+                        aria-label={isPlaying ? 'Pause' : 'Play'}
+                        className="bg-brown text-cream hover:bg-brown-dark flex h-7 w-7 shrink-0 cursor-pointer items-center justify-center rounded-full transition-colors"
+                    >
+                        {isPlaying ? (
+                            <Pause className="h-3 w-3" />
+                        ) : (
+                            <Play className="h-3 w-3 translate-x-px" />
+                        )}
+                    </button>
+                </div>
+            )}
         </header>
     )
 }

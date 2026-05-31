@@ -68,7 +68,7 @@ export function Hero() {
     return (
         <section
             id="hero"
-            className="text-brown-dark flex min-h-screen flex-col pt-[82px] md:pt-[76px]"
+            className="text-brown-dark flex min-h-screen flex-col pt-[82px] lg:pt-[76px]"
         >
             <div className="container mx-auto flex min-h-0 flex-1 flex-col justify-center overflow-hidden">
                 <Nav />

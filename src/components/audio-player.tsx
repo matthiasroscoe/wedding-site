@@ -5,7 +5,7 @@ import { Music, Pause, Play } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import { SongRequestDialog } from '@/components/song-request-dialog'
 
-export const SHOW_MOBILE_HEADER_AUDIO = true
+export const SHOW_MOBILE_HEADER_AUDIO = false
 
 const bars = [
     { duration: '0.9s', delay: '0s' },
@@ -41,7 +41,7 @@ export function AudioPlayer() {
 
     return (
         <div className="fixed bottom-6 left-1/2 z-50 flex -translate-x-1/2 md:right-6 md:left-auto md:translate-x-0">
-            <div className="bg-cream border-brown/20 flex min-w-[260px] items-center gap-3 rounded-full border py-2 pr-2 pl-4 shadow-md">
+            <div className="bg-cream border-brown/20 flex min-w-[250px] items-center gap-3 rounded-full border py-2 pr-0 pl-4 shadow-md">
                 <Music className="text-brown-dark/50 h-3.5 w-3.5 shrink-0" />
                 <div className="flex flex-col items-start gap-0.5">
                     <div className="flex items-center gap-1.5">
