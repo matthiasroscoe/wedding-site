@@ -185,7 +185,7 @@ export function OurStoryContent() {
                         ref={(el) => {
                             sectionRefs.current[i] = el
                         }}
-                        className="relative h-[55vh]"
+                        className="relative min-h-[max(55vh,36rem)] [@media(max-height:850px)]:min-h-[max(62vh,40rem)]"
                     >
                         <div
                             ref={(el) => {
