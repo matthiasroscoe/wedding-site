@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { CONTACT_EMAIL, CONTACT_PHONE } from '@/lib/constants'
 import { Button } from './ui/button'
 import { Heading2 } from './ui/typography'
@@ -43,7 +44,16 @@ export function MainDetails() {
                                 {CONTACT_EMAIL}
                             </a>
                         </p>
-                        <p>Whatsapp: {CONTACT_PHONE}</p>
+                        <p>
+                            Whatsapp:{' '}
+                            <Link
+                                target="_blank"
+                                href={`https://wa.me/${CONTACT_PHONE}`}
+                                className="hover:underline"
+                            >
+                                {CONTACT_PHONE}
+                            </Link>
+                        </p>
                     </div>
                 </div>
             </div>

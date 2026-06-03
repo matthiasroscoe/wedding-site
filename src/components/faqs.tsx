@@ -41,16 +41,12 @@ const faqs = [
         question: 'Are kids welcome?',
         answer: "As much as we would love to have everyone there, we will not be including kids in our wedding day. You are more than welcome to bring them along to day 2 if they come out with you. We'll happily make an exception for breastfeeding babies though!",
     },
-    {
-        question: 'Is it okay to take pictures with our phones and cameras during the wedding?',
-        answer: 'Yes! We would love for you to take photos after the ceremony. However, please refrain from taking pictures during the ceremony.',
-    },
 ]
 
 export function Faqs({ className }: { className?: string }) {
     return (
         <section id="faqs" className={cn('section-wavy-top bg-yellow text-brown-dark', className)}>
-            <div className="font-body container mx-auto px-8 pt-[140px] pb-24 md:pt-[240px]">
+            <div className="font-body pb-wavy-offset container mx-auto max-w-xl px-8 pt-[140px] md:pt-[240px]">
                 <Heading2 className="mb-8 text-center">faqs</Heading2>
 
                 <div className="mx-auto mt-8 max-w-[700px] text-lg">

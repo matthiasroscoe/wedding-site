@@ -85,7 +85,7 @@ export function RsvpForm() {
                     Let us know if you can make it to our wedding. Please RSVP by 1st February 2027.
                 </Paragraph>
                 <Paragraph className="text-brown-dark mb-4">
-                    Not sure if you RSVPed or want to change your RSVP?{' '}
+                    Not sure if you RSVP&apos;d or want to change your RSVP?{' '}
                     <Link href="/rsvp/check" className="underline">
                         Click here
                     </Link>
@@ -188,7 +188,7 @@ export function RsvpForm() {
                 {mutation.isSuccess && mutation.data.error && (
                     <div className="font-body bg-yellow text-brown-dark rounded-xl p-3 text-center">
                         <p className="text-sm">
-                            You&apos;ve already RSVPed. If you need to change your RSVP, please{' '}
+                            You&apos;ve already RSVP&apos;d. If you need to change your RSVP, please{' '}
                             <a
                                 href={`mailto:${CONTACT_EMAIL}?subject=${CHANGE_SUBJECT}&body=Hi,\n\nI'd like to update my RSVP.\n\nEmail: ${email}\n\nChanges:\n`}
                                 className="hover:text-brown-dark underline underline-offset-2"

@@ -76,7 +76,7 @@ function RsvpNotFound() {
         <div className="bg-yellow font-body mt-6 flex flex-col gap-3 rounded-xl p-6">
             <p className="text-brown-dark">No RSVP found for that email address.</p>
             <p className="text-brown-dark text-sm">
-                It looks like you haven&apos;t RSVPed yet. You can{' '}
+                It looks like you haven&apos;t RSVP&apos;d yet. You can{' '}
                 <Link href="/#rsvp" className="underline underline-offset-2">
                     RSVP here
                 </Link>

@@ -7,6 +7,7 @@ import { TravelAccommodation } from '@/components/travel-accommodation'
 import { DressCode } from '@/components/dress-code'
 import { RsvpSection } from '@/components/rsvp-section'
 import { Faqs } from '@/components/faqs'
+import { Gifts } from '@/components/gifts'
 import { Main } from '@/components/main'
 import { SITE_DESCRIPTION, SITE_NAME } from '@/lib/site-metadata'
 
@@ -27,6 +28,7 @@ export default function Home() {
             <DressCode />
             <RsvpSection />
             <Faqs />
+            <Gifts />
         </Main>
     )
 }

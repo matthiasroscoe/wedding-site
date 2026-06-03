@@ -1,12 +1,14 @@
 'use client'
 
 import Link from 'next/link'
+import { useLenis } from 'lenis/react'
 import { Menu, Pause, Play } from 'lucide-react'
 import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import { useAudio } from '@/lib/audio-context'
 import { SHOW_MOBILE_HEADER_AUDIO } from '@/components/audio-player'
-import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
+import { useEffect, useState, type MouseEvent, type ReactNode } from 'react'
+import { NAV_SCROLL_OFFSET, SCROLL_DURATION } from '@/lib/scroll'
 import { cn } from '@/lib/utils'
 
 export const navLinks = [
@@ -18,6 +20,53 @@ export const navLinks = [
     { label: 'rsvp', href: '/#rsvp' },
     { label: 'faqs', href: '/#faqs' },
 ]
+
+function NavLink({
+    href,
+    className,
+    children,
+}: {
+    href: string
+    className?: string
+    children: ReactNode
+}) {
+    const lenis = useLenis()
+    const pathname = usePathname()
+    const router = useRouter()
+
+    const hashIndex = href.indexOf('#')
+    const hash = hashIndex === -1 ? null : href.slice(hashIndex)
+    const path = hashIndex === -1 ? href : href.slice(0, hashIndex) || '/'
+
+    const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
+        if (!lenis) return
+
+        if (href === '/' && pathname === '/') {
+            event.preventDefault()
+            lenis.scrollTo(0, { duration: SCROLL_DURATION })
+            return
+        }
+
+        if (!hash) return
+
+        if (pathname === path) {
+            event.preventDefault()
+            lenis.scrollTo(hash, { offset: -NAV_SCROLL_OFFSET, duration: SCROLL_DURATION })
+            return
+        }
+
+        if (path === '/') {
+            event.preventDefault()
+            router.push(href)
+        }
+    }
+
+    return (
+        <Link href={href} className={className} onClick={handleClick}>
+            {children}
+        </Link>
+    )
+}
 
 export function Nav() {
     const { isPlaying, toggle, track } = useAudio()
@@ -51,13 +100,13 @@ export function Nav() {
             {/* Desktop */}
             <nav className="hidden items-center gap-[45px] lg:flex">
                 {navLinks.map(({ label, href }) => (
-                    <Link
+                    <NavLink
                         key={label}
                         href={href}
                         className="font-handwriting text-[24px] leading-7 transition-opacity hover:opacity-70 xl:text-[28px]"
                     >
                         {label}
-                    </Link>
+                    </NavLink>
                 ))}
             </nav>
 
@@ -78,12 +127,12 @@ export function Nav() {
                         <nav className="mt-12 flex flex-col gap-5">
                             {navLinks.map(({ label, href }) => (
                                 <SheetClose key={label} asChild>
-                                    <Link
+                                    <NavLink
                                         href={href}
                                         className="font-handwriting text-[24px] leading-6 transition-opacity hover:opacity-70"
                                     >
                                         {label}
-                                    </Link>
+                                    </NavLink>
                                 </SheetClose>
                             ))}
                         </nav>
