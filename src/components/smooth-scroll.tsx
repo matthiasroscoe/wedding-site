@@ -4,7 +4,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ReactLenis, useLenis } from 'lenis/react'
 import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import { NAV_SCROLL_OFFSET, SCROLL_DURATION } from '@/lib/scroll'
 import 'lenis/dist/lenis.css'
 
@@ -16,6 +16,18 @@ const lenisOptions = {
     anchors: {
         offset: -NAV_SCROLL_OFFSET,
     },
+}
+
+function RouteScrollReset() {
+    const lenis = useLenis()
+    const pathname = usePathname()
+
+    useLayoutEffect(() => {
+        if (!lenis || window.location.hash) return
+        lenis.scrollTo(0, { immediate: true })
+    }, [pathname, lenis])
+
+    return null
 }
 
 function HashScroll() {
@@ -71,6 +83,7 @@ export function SmoothScroll() {
     return (
         <>
             <ReactLenis root options={lenisOptions} />
+            <RouteScrollReset />
             <HashScroll />
             <ScrollTriggerSync />
         </>

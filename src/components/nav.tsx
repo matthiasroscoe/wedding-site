@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useLenis } from 'lenis/react'
 import { Menu, Pause, Play } from 'lucide-react'
-import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import { useAudio } from '@/lib/audio-context'
 import { SHOW_MOBILE_HEADER_AUDIO } from '@/components/audio-player'
 import { usePathname, useRouter } from 'next/navigation'
@@ -25,10 +25,12 @@ function NavLink({
     href,
     className,
     children,
+    onNavigate,
 }: {
     href: string
     className?: string
     children: ReactNode
+    onNavigate?: () => void
 }) {
     const lenis = useLenis()
     const pathname = usePathname()
@@ -39,13 +41,19 @@ function NavLink({
     const path = hashIndex === -1 ? href : href.slice(0, hashIndex) || '/'
 
     const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
-        if (!lenis) return
+        onNavigate?.()
 
-        if (href === '/' && pathname === '/') {
+        if (!hash && path === pathname) {
             event.preventDefault()
-            lenis.scrollTo(0, { duration: SCROLL_DURATION })
+            if (lenis) {
+                lenis.scrollTo(0, { duration: SCROLL_DURATION })
+            } else {
+                window.scrollTo(0, 0)
+            }
             return
         }
+
+        if (!lenis) return
 
         if (!hash) return
 
@@ -73,6 +81,7 @@ export function Nav() {
     const pathname = usePathname()
     const isHome = pathname === '/'
     const [pastHero, setPastHero] = useState(false)
+    const [menuOpen, setMenuOpen] = useState(false)
 
     useEffect(() => {
         if (!isHome) return
@@ -112,7 +121,7 @@ export function Nav() {
 
             {/* Mobile */}
             <div className="flex items-center gap-3 lg:hidden">
-                <Sheet>
+                <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
                     <SheetTrigger asChild>
                         <button
                             aria-label="Open navigation"
@@ -126,14 +135,14 @@ export function Nav() {
                         <SheetTitle className="sr-only">Navigation</SheetTitle>
                         <nav className="mt-12 flex flex-col gap-5">
                             {navLinks.map(({ label, href }) => (
-                                <SheetClose key={label} asChild>
-                                    <NavLink
-                                        href={href}
-                                        className="font-handwriting text-[24px] leading-6 transition-opacity hover:opacity-70"
-                                    >
-                                        {label}
-                                    </NavLink>
-                                </SheetClose>
+                                <NavLink
+                                    key={label}
+                                    href={href}
+                                    onNavigate={() => setMenuOpen(false)}
+                                    className="font-handwriting text-[24px] leading-6 transition-opacity hover:opacity-70"
+                                >
+                                    {label}
+                                </NavLink>
                             ))}
                         </nav>
                     </SheetContent>
